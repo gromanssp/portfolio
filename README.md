@@ -160,3 +160,8 @@ La imagen de producción pesa **~25MB** (Alpine + Nginx + Angular build).
 - [ ] Conectar formulario de contacto a un backend (EmailJS, Formspree, etc.)
 - [ ] Configurar dominio y deploy (Vercel, Netlify, o tu propio VPS con Docker)
 - [ ] Añadir `@angular/ssr` si necesitas SEO con Server-Side Rendering
+
+## Publicacion
+
+- ** Se instala el siguiente paquete para el desplege ng add angular-cli-ghpages
+- ** Se desplego con ng deploy --base-href=/NOMBRE_DEL_REPO/

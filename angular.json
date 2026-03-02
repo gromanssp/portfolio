@@ -65,6 +65,9 @@
             "styles": ["src/styles/styles.css"],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
