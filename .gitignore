@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.angular/
+.env
+.env.local
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+.idea/
+npm-debug.log
+yarn-error.log

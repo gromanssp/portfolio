@@ -1,0 +1,284 @@
+/* ==============================================
+   PORTFOLIO — Global Styles
+   Tailwind CSS v4 + Custom Design Tokens
+   ============================================== */
+
+@import "tailwindcss";
+
+/* ==============================================
+   DESIGN TOKENS via @theme
+   Tailwind v4 uses @theme instead of tailwind.config
+   ============================================== */
+@theme {
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --color-accent-50: #f0fdfa;
+  --color-accent-100: #ccfbf1;
+  --color-accent-200: #99f6e4;
+  --color-accent-300: #5eead4;
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #14b8a6;
+  --color-accent-600: #0d9488;
+  --color-accent-700: #0f766e;
+  --color-accent-800: #115e59;
+  --color-accent-900: #134e4a;
+
+  --color-neon-blue: #00e5ff;
+  --color-neon-purple: #b388ff;
+  --color-neon-green: #69f0ae;
+  --color-neon-pink: #ff80ab;
+  --color-neon-orange: #ffab40;
+
+  --color-surface-950: #030712;
+  --color-surface-900: #0a0f1a;
+  --color-surface-800: #111827;
+  --color-surface-700: #1a2332;
+  --color-surface-600: #243044;
+}
+
+/* ==============================================
+   BASE
+   ============================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-500);
+  border-radius: 3px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface-950);
+  color: #e2e8f0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==============================================
+   BACKGROUNDS & TEXTURES
+   ============================================== */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='rgba(20,184,166,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==============================================
+   GLOW EFFECTS
+   ============================================== */
+.glow-text {
+  text-shadow: 0 0 20px rgba(20, 184, 166, 0.5), 0 0 60px rgba(20, 184, 166, 0.2);
+}
+
+.glow-border {
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+/* ==============================================
+   KEYFRAME ANIMATIONS
+   ============================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ==============================================
+   ANIMATION UTILITY CLASSES
+   ============================================== */
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-morph { animation: morph 8s ease-in-out infinite; }
+.animate-rotate-slow { animation: rotate-slow 20s linear infinite; }
+.animate-blink { animation: blink-cursor 1s step-end infinite; }
+.animate-gradient {
+  animation: gradient-shift 6s ease infinite;
+  background-size: 200% 200%;
+}
+
+.slide-up { animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.slide-up-d1 { animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; opacity: 0; }
+.slide-up-d2 { animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; opacity: 0; }
+.slide-up-d3 { animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
+.slide-up-d4 { animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; opacity: 0; }
+
+/* ==============================================
+   INTERACTIVE COMPONENTS
+   ============================================== */
+
+/* Card with hover glow */
+.card-hover {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.card-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.card-hover:hover::before { opacity: 1; }
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(20, 184, 166, 0.15);
+  border-color: rgba(20, 184, 166, 0.4);
+}
+
+/* Button with shine sweep */
+.btn-cyber {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.btn-cyber::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+.btn-cyber:hover::before { left: 100%; }
+.btn-cyber:hover {
+  box-shadow: 0 0 30px rgba(20, 184, 166, 0.4), 0 0 60px rgba(20, 184, 166, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Nav link underline */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-500), var(--color-neon-blue));
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+.nav-link:hover,
+.nav-link.active { color: var(--color-accent-500); }
+
+/* Tech tag hover */
+.tech-tag {
+  transition: all 0.3s ease;
+}
+.tech-tag:hover {
+  background: rgba(20, 184, 166, 0.2);
+  border-color: var(--color-accent-500);
+  transform: scale(1.05);
+}
+
+/* Form inputs */
+.input-cyber {
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  transition: all 0.3s ease;
+}
+.input-cyber:focus {
+  border-color: var(--color-accent-500);
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.15);
+  outline: none;
+}
+
+/* Skill bar fill */
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent-500), var(--color-neon-blue));
+  border-radius: 9999px;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Orbit rings */
+.orbit-ring {
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  border-radius: 50%;
+  animation: rotate-slow 20s linear infinite;
+}
+.orbit-ring:nth-child(2) { animation-duration: 30s; animation-direction: reverse; }
+.orbit-ring:nth-child(3) { animation-duration: 40s; }
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  background: var(--color-accent-500);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
