@@ -10,7 +10,7 @@ import { Project } from '@core/models/portfolio.models';
       <div class="relative z-10">
           @if (project().icon !== '') {
             <div class="w-14 h-14 rounded-xl bg-teal-500/10 flex items-center justify-center mb-6 group-hover:bg-teal-500/20 transition">
-              <svg class="w-7 h-7 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <svg [class]="project().colorClasses.text" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path [attr.d]=project().icon></path>
               </svg>
             </div>

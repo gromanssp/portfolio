@@ -34,9 +34,9 @@ export class PortfolioDataService {
   readonly projects: Project[] = [
     {
       id: 'hospital-app',
-      title: 'Hospital System Full Stack',
-      description: 'Aplicación Full stack para gestión de medicos y hospitales, con panel de administracion de usuarios.',
-      tags: ['Angular','TypeScript', 'Node.js', 'MongoDB', 'Express', 'Tailwind'],
+      title: 'Hospital System',
+      description: 'Aplicación Full stack para gestión de médicos, hospitales, con panel de administración',
+      tags: ['Angular', 'Node.js', 'MongoDB', 'Express', 'Tailwind'],
       color: 'cyan',
       colorClasses: { bg: 'bg-cyan-500/10', text: 'text-cyan-400/70', border: 'border-cyan-500/10' },
       links: [{ label: 'GitHub', url: 'https://github.com/gromanssp/gromanssp' }, { label: 'Demo', url: 'https://gromanssp.vercel.app' }],
@@ -48,8 +48,8 @@ export class PortfolioDataService {
       title: 'Delivery Ktp',
       description: 'Entrega de paqueteria distribuidas por el mapa',
       tags: ['Flutter', 'Google Map', 'SQL'],
-      color: 'purple',
-      colorClasses: { bg: 'bg-purple-500/10', text: 'text-purple-400/70', border: 'border-purple-500/10' },
+      color: 'orange',
+      colorClasses: { bg: 'bg-orange-500/10', text: 'text-orange-400/70', border: 'border-orange-500/10' },
       links: [{ label: 'PlayStore', url: 'https://play.google.com/store/apps/details?id=com.katapulk.ktp&hl=en&pli=1' }],
       featured: true,
       icon: 'M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z'
@@ -59,8 +59,8 @@ export class PortfolioDataService {
       title: 'Credit Card',
       description: 'Sitio web para establecer datos a una tarjeta electronica',
       tags: ['Angular', 'TypeScript'],
-      color: 'red',
-      colorClasses: { bg: 'bg-cyan-500/10', text: 'text-cyan-400/70', border: 'border-cyan-500/10' },
+      color: 'purple',
+      colorClasses: { bg: 'bg-purple-500/10', text: 'text-purple-400/70', border: 'border-purple-500/10' },
       links: [{ label: 'GitHub', url: 'https://github.com/gromanssp/creditCard' }, { label: 'Demo', url: 'https://credit-card-roan-nine.vercel.app' }],
       featured: true,
       icon: 'M11.343 18.031c.058.049.12.098.181.146-1.177.783-2.59 1.238-4.107 1.238C3.32 19.416 0 16.096 0 12c0-4.095 3.32-7.416 7.416-7.416 1.518 0 2.931.456 4.105 1.238-.06.051-.12.098-.165.15C9.6 7.489 8.595 9.688 8.595 12c0 2.311 1.001 4.51 2.748 6.031zm5.241-13.447c-1.52 0-2.931.456-4.105 1.238.06.051.12.098.165.15C14.4 7.489 15.405 9.688 15.405 12c0 2.31-1.001 4.507-2.748 6.031-.058.049-.12.098-.181.146 1.177.783 2.588 1.238 4.107 1.238C20.68 19.416 24 16.096 24 12c0-4.094-3.32-7.416-7.416-7.416zM12 6.174c-.096.075-.189.15-.28.231C10.156 7.764 9.169 9.765 9.169 12c0 2.236.987 4.236 2.551 5.595.09.08.185.158.28.232.096-.074.189-.152.28-.232 1.563-1.359 2.551-3.359 2.551-5.595 0-2.235-.987-4.236-2.551-5.595-.09-.08-.184-.156-.28-.231z'
@@ -76,13 +76,13 @@ export class PortfolioDataService {
       icon: ''
     },
     {
-      id: 'real-time-chat',
-      title: 'Real-Time Chat Platform',
-      description: 'Plataforma de mensajería en tiempo real con channels, DMs, file sharing, videollamadas y bots integrados.',
-      tags: ['Next.js', 'WebRTC', 'Redis', 'PostgreSQL', 'Docker'],
+      id: 'password-generator',
+      title: 'Password Generator',
+      description: 'Plataforma para generar passwords seguros automaticos',
+      tags: ['Angular'],
       color: 'green',
       colorClasses: { bg: 'bg-green-500/10', text: 'text-green-400/70', border: 'border-green-500/10' },
-      links: [{ label: 'GitHub', url: '#' }],
+      links: [{ label: 'Demo', url: 'https://passgenerator-eosin.vercel.app/' }],
       icon: ''
     },
     {
