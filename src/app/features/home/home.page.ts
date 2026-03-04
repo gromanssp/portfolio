@@ -105,7 +105,7 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
     <section class="py-24">
       <div class="max-w-7xl mx-auto px-6">
         <app-section-header title="Proyectos Destacados" subtitle="Mi Trabajo" [divider]="true" />
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-4 gap-6">
           @for (project of data.featuredProjects; track project.id) {
             <app-project-card [project]="project" />
           }

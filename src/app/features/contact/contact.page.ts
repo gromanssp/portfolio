@@ -30,7 +30,7 @@ import { TerminalBlockComponent } from '@shared/components/terminal-block/termin
 
           <!-- Form -->
           <div class="lg:col-span-3">
-            <div class="p-10 rounded-3xl bg-surface-800/40 border border-white/[0.05]">
+            <div class="p-10 rounded-3xl bg-surface-800/40 border border-white/5">
               @if (!submitted()) {
                 <h3 class="font-display font-bold text-xl text-white mb-8">Envíame un mensaje</h3>
                 <div class="space-y-6">
@@ -60,8 +60,9 @@ import { TerminalBlockComponent } from '@shared/components/terminal-block/termin
                               class="input-cyber w-full px-4 py-3 rounded-xl text-sm text-white font-body placeholder:text-white/20 resize-none">
                     </textarea>
                   </div>
-                  <button (click)="send()" [disabled]="sending()"
-                          class="btn-cyber w-full bg-gradient-to-r from-accent-500 to-cyan-500 text-surface-950 py-4 rounded-xl font-semibold text-sm tracking-wide disabled:opacity-60">
+                  <!-- <button (click)="send()" [disabled]="sending()" -->
+                  <button (click)="send()" [disabled]="true"
+                          class="btn-cyber w-full bg-linear-to-r from-accent-500 to-cyan-500 text-surface-950 py-4 rounded-xl font-semibold text-sm tracking-wide disabled:opacity-60">
                     {{ sending() ? 'Enviando...' : 'Enviar Mensaje →' }}
                   </button>
                 </div>
@@ -79,7 +80,7 @@ import { TerminalBlockComponent } from '@shared/components/terminal-block/termin
 
           <!-- Sidebar -->
           <div class="lg:col-span-2 space-y-6">
-            <div class="p-8 rounded-2xl bg-surface-800/40 border border-white/[0.05]">
+            <div class="p-8 rounded-2xl bg-surface-800/40 border border-white/5">
               <h4 class="font-display font-semibold text-white mb-6">Información</h4>
               <div class="space-y-5">
                 @for (info of contactInfo; track info.label) {
@@ -98,7 +99,7 @@ import { TerminalBlockComponent } from '@shared/components/terminal-block/termin
               </div>
             </div>
 
-            <div class="p-8 rounded-2xl bg-surface-800/40 border border-white/[0.05]">
+            <div class="p-8 rounded-2xl bg-surface-800/40 border border-white/5">
               <h4 class="font-display font-semibold text-white mb-4">Disponibilidad</h4>
               <div class="space-y-3">
                 <div class="flex justify-between">

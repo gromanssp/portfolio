@@ -156,4 +156,7 @@ La imagen de producción pesa **~25MB** (Alpine + Nginx + Angular build).
 ## Publicacion
 
 - ** Se instala el siguiente paquete para el desplege ng add angular-cli-ghpages
-- ** Se desplego con ng deploy --base-href=/NOMBRE_DEL_REPO/
+- ** Para cambiar el despliegue en remoto ng build --base-href=/portfolio/
+- ** para desplegar npx angular-cli-ghpages --dir=dist/portfolio/browser
+
+

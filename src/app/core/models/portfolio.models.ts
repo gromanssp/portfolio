@@ -1,3 +1,5 @@
+import { SafeHtml } from "@angular/platform-browser";
+
 export interface Project {
   id: string;
   title: string;
@@ -9,6 +11,7 @@ export interface Project {
   colorClasses: TagColors;
   links: { label: string; url: string }[];
   featured?: boolean;
+  icon: string;
 }
 
 export interface TagColors {
@@ -39,7 +42,7 @@ export interface Stat {
 export interface SocialLink {
   label: string;
   url: string;
-  svgPath: string;
+  svgPath: SafeHtml;
 }
 
 export interface TerminalLine {
