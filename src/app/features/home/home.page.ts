@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { PortfolioDataService } from '@core/services/portfolio-data.service';
 import { SectionHeaderComponent } from '@shared/components/section-header/section-header.component';
 import { ProjectCardComponent } from '@shared/components/project-card/project-card.component';
+import { I18nService } from '@core/i18n';
 
 @Component({
   selector: 'app-home-page',
@@ -24,26 +25,26 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
         <div>
           <div class="slide-up flex items-center gap-3 mb-6">
             <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
-            <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{ data.role }}</span>
+            <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{ data.role() }}</span>
           </div>
 
           <h1 class="slide-up-d1 font-display font-black text-5xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
-            <span class="text-white">Hola, soy</span><br>
+            <span class="text-white">{{this.i18n.t().hero.greeting}}</span><br>
             <span class="bg-linear-to-r from-accent-400 via-cyan-300 to-accent-400 bg-clip-text text-transparent animate-gradient">
               {{ data.name }}
             </span>
           </h1>
 
-          <p class="slide-up-d2 text-lg text-white/50 max-w-lg mb-10 font-light leading-relaxed">{{ data.bio }}</p>
+          <p class="slide-up-d2 text-lg text-white/50 max-w-lg mb-10 font-light leading-relaxed">{{ data.bio() }}</p>
 
           <div class="slide-up-d3 flex flex-wrap gap-4">
             <a routerLink="/proyectos"
                class="btn-cyber bg-linear-to-r from-accent-500 to-cyan-500 text-surface-950 px-8 py-3.5 rounded-xl font-semibold text-sm tracking-wide">
-              Ver Proyectos
+              {{this.i18n.t().hero.viewProjects}}
             </a>
             <a routerLink="/contacto"
                class="btn-cyber border border-white/10 text-white/80 px-8 py-3.5 rounded-xl font-medium text-sm hover:border-accent-500/30 hover:text-accent-400">
-              Contactar
+              {{this.i18n.t().hero.contactMe}}
             </a>
           </div>
 
@@ -89,7 +90,7 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
     <section class="py-24">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          @for (stat of data.stats; track stat.label; let i = $index) {
+          @for (stat of data.stats(); track stat.label; let i = $index) {
             <div class="text-center p-8 rounded-2xl bg-surface-800/30 border border-white/4 glow-border">
               <div class="font-display font-extrabold text-4xl md:text-5xl text-white mb-2">
                 {{ counters()[i] }}{{ stat.suffix ?? '' }}
@@ -104,16 +105,16 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
     <!-- ════════ FEATURED PROJECTS ════════ -->
     <section class="py-24">
       <div class="max-w-7xl mx-auto px-6">
-        <app-section-header title="Proyectos Destacados" subtitle="Mi Trabajo" [divider]="true" />
+        <app-section-header title="{{this.i18n.t().home.featuredTitle}}" subtitle="{{this.i18n.t().home.featuredSubtitle}}" [divider]="true" />
         <div class="grid md:grid-cols-4 gap-6">
-          @for (project of data.featuredProjects; track project.id) {
+          @for (project of data.featuredProjects(); track project.id) {
             <app-project-card [project]="project" />
           }
         </div>
         <div class="text-center mt-12">
           <a routerLink="/proyectos"
              class="btn-cyber border border-accent-500/30 text-accent-400 px-8 py-3 rounded-xl font-medium text-sm inline-flex items-center gap-2">
-            Ver todos los proyectos
+            {{this.i18n.t().home.viewAll}}
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -123,7 +124,7 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
     <!-- ════════ TECH STACK ════════ -->
     <section class="py-24 hex-pattern">
       <div class="max-w-7xl mx-auto px-6">
-        <app-section-header title="Mi Stack Tecnológico" subtitle="Herramientas" />
+        <app-section-header title="{{this.i18n.t().home.techTitle}}" subtitle="{{this.i18n.t().home.techSubtitle}}" />
         <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
           @for (tech of data.techStack; track tech.name) {
             <div class="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-800/20 border border-white/3 transition-all hover:bg-surface-800/40 cursor-default"
@@ -141,14 +142,14 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
       <div class="absolute inset-0 bg-linear-to-b from-transparent via-accent-500/3 to-transparent"></div>
       <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
         <h2 class="font-display font-extrabold text-3xl md:text-5xl text-white mb-6">
-          ¿Tienes un proyecto<br>en mente?
+          {{this.i18n.t().home.ctaTitle}}
         </h2>
         <p class="text-white/40 text-lg mb-10 max-w-xl mx-auto">
-          Estoy disponible para freelance, colaboraciones y oportunidades interesantes.
+          {{this.i18n.t().home.ctaDescription}}
         </p>
         <a routerLink="/contacto"
            class="btn-cyber bg-linear-to-r from-accent-500 to-cyan-500 text-surface-950 px-10 py-4 rounded-xl font-semibold tracking-wide text-sm">
-          Hablemos →
+          {{this.i18n.t().home.ctaButton}}
         </a>
       </div>
     </section>
@@ -156,11 +157,12 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
 })
 export class HomePage implements OnInit {
   readonly data = inject(PortfolioDataService);
+  readonly i18n = inject(I18nService);
   heroTags = ['Angular', 'TypeScript', 'Node.js', 'Docker', 'Flutter'];
   counters = signal<number[]>([0, 0, 0, 0]);
 
   ngOnInit(): void {
-    const targets = this.data.stats.map((s) => s.value);
+    const targets = this.data.stats().map((s) => s.value);
     const cur = [0, 0, 0, 0];
     const inc = targets.map((t) => t / 50);
     const timer = setInterval(() => {

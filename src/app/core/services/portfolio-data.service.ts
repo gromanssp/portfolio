@@ -1,5 +1,6 @@
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { I18nService } from '@core/i18n';
 import {
   Project,
   Skill,
@@ -11,31 +12,36 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class PortfolioDataService {
+  private readonly i18n = inject(I18nService);
 
   sanitizer = inject(DomSanitizer);
 
   // ─── PERSONAL INFO ───────────────────────────
   readonly name = 'Jorge González Román';
-  readonly role = 'Full Stack Developer';
   readonly email = 'groman.ssp@gmail.com';
   readonly phone = '+34 600 000 000';
   readonly location = 'España';
-  readonly bio = 'Desarrollador Full Stack apasionado por crear experiencias digitales de alto rendimiento con arquitecturas modernas, clean code y diseño centrado en el usuario.';
+  // ─── TRANSLATED COMPUTED FIELDS ──────────────
+  readonly role = computed(() => this.i18n.t().personal.role);
+  readonly bio = computed(() => this.i18n.t().personal.bio);
+  readonly infoLocation = computed(() => this.i18n.t().contactPage.infoLocation)
 
   // ─── STATS ───────────────────────────────────
-  readonly stats: Stat[] = [
-    { value: 11, label: 'Proyectos', suffix: '+' },
-    { value: 5, label: 'Años Exp.', suffix: '+' },
-    { value: 12, label: 'Tecnologías' },
-    { value: 100, label: '% Pasión', suffix: '' },
-  ];
+  readonly stats = computed<Stat[]>(() => {
+    const t = this.i18n.t().stats;
+    return [
+      { value: 11, label: t.projects, suffix: '+' },
+      { value: 5, label: t.yearsExp, suffix: '+' },
+      { value: 12, label: t.technologies },
+      { value: 100, label: t.passion, suffix: '' },
+    ];
+  });
 
   // ─── PROJECTS ────────────────────────────────
-  readonly projects: Project[] = [
+  readonly projectsBase: Omit<Project, 'description'>[] = [
     {
       id: 'hospital-app',
       title: 'Hospital System',
-      description: 'Aplicación Full stack para gestión de médicos, hospitales, con panel de administración',
       tags: ['Angular', 'Node.js', 'MongoDB', 'Express', 'Tailwind'],
       color: 'cyan',
       colorClasses: { bg: 'bg-cyan-500/10', text: 'text-cyan-400/70', border: 'border-cyan-500/10' },
@@ -46,7 +52,6 @@ export class PortfolioDataService {
     {
       id: 'katapulk',
       title: 'Delivery Ktp',
-      description: 'Entrega de paqueteria distribuidas por el mapa',
       tags: ['Flutter', 'Google Map', 'SQL'],
       color: 'orange',
       colorClasses: { bg: 'bg-orange-500/10', text: 'text-orange-400/70', border: 'border-orange-500/10' },
@@ -57,7 +62,6 @@ export class PortfolioDataService {
     {
       id: 'credit-card',
       title: 'Credit Card',
-      description: 'Sitio web para establecer datos a una tarjeta electronica',
       tags: ['Angular', 'TypeScript'],
       color: 'purple',
       colorClasses: { bg: 'bg-purple-500/10', text: 'text-purple-400/70', border: 'border-purple-500/10' },
@@ -66,9 +70,18 @@ export class PortfolioDataService {
       icon: 'M11.343 18.031c.058.049.12.098.181.146-1.177.783-2.59 1.238-4.107 1.238C3.32 19.416 0 16.096 0 12c0-4.095 3.32-7.416 7.416-7.416 1.518 0 2.931.456 4.105 1.238-.06.051-.12.098-.165.15C9.6 7.489 8.595 9.688 8.595 12c0 2.311 1.001 4.51 2.748 6.031zm5.241-13.447c-1.52 0-2.931.456-4.105 1.238.06.051.12.098.165.15C14.4 7.489 15.405 9.688 15.405 12c0 2.31-1.001 4.507-2.748 6.031-.058.049-.12.098-.181.146 1.177.783 2.588 1.238 4.107 1.238C20.68 19.416 24 16.096 24 12c0-4.094-3.32-7.416-7.416-7.416zM12 6.174c-.096.075-.189.15-.28.231C10.156 7.764 9.169 9.765 9.169 12c0 2.236.987 4.236 2.551 5.595.09.08.185.158.28.232.096-.074.189-.152.28-.232 1.563-1.359 2.551-3.359 2.551-5.595 0-2.235-.987-4.236-2.551-5.595-.09-.08-.184-.156-.28-.231z'
     },
     {
+      id: 'vitrina-store',
+      title: 'La Vitrina',
+      tags: ['Angular', 'NestJS', 'PostgreSQL', 'Stripe', 'Docker'],
+      color: 'teal',
+      colorClasses: { bg: 'bg-accent-500/10', text: 'text-accent-400/70', border: 'border-accent-500/10' },
+      links: [],
+      featured: true,
+      icon: ''
+    },
+    {
       id: 'mobile-tiktock',
       title: 'Tok tik Clone',
-      description: 'App móvil para reaccionar a videos en redes',
       tags: ['Flutter'],
       color: 'pink',
       colorClasses: { bg: 'bg-pink-500/10', text: 'text-pink-400/70', border: 'border-pink-500/10' },
@@ -78,29 +91,20 @@ export class PortfolioDataService {
     {
       id: 'password-generator',
       title: 'Password Generator',
-      description: 'Plataforma para generar passwords seguros automaticos',
       tags: ['Angular'],
       color: 'green',
       colorClasses: { bg: 'bg-green-500/10', text: 'text-green-400/70', border: 'border-green-500/10' },
       links: [{ label: 'Demo', url: 'https://passgenerator-eosin.vercel.app/' }],
       icon: ''
-    },
-    {
-      id: 'vitrina-store',
-      title: 'La Vitrina',
-      description: 'Plataforma de comercio electrónico completa con panel de administración, pagos integrados y analíticas en tiempo real.',
-      tags: ['Angular', 'NestJS', 'PostgreSQL', 'Stripe', 'Docker'],
-      color: 'teal',
-      colorClasses: { bg: 'bg-accent-500/10', text: 'text-accent-400/70', border: 'border-accent-500/10' },
-      links: [],
-      featured: true,
-      icon: ''
-    },
+    }
   ];
 
-  get featuredProjects(): Project[] {
-    return this.projects.filter((p) => p.featured);
-  }
+  readonly projects = computed<Project[]>(() => {
+    const descs = this.i18n.t().projectDescriptions;
+    return this.projectsBase.map((p) => ({ ...p, description: descs[p.id] ?? '' }));
+  });
+
+  readonly featuredProjects = computed(() => this.projects().filter((p) => p.featured));
 
   // ─── TECH STACK ──────────────────────────────
   readonly techStack = [
@@ -116,45 +120,21 @@ export class PortfolioDataService {
   ];
 
   // ─── SKILLS ──────────────────────────────────
-  readonly skills: Skill[] = [
-    { label: 'Frontend (Angular, Flutter)', percentage: 95 },
-    { label: 'Backend (Node.js, NestJS)', percentage: 90 },
-    { label: 'Bases de Datos (SQL, NoSQL)', percentage: 88 },
-    { label: 'DevOps (Linux, Docker)', percentage: 85 },
-    { label: 'UI/UX & Design Systems', percentage: 80 },
-  ];
+  private readonly skillPercentages = [95, 90, 88, 85, 80];
+  readonly skills = computed<Skill[]>(() =>
+    this.i18n.t().skills.map((label, i) => ({ label, percentage: this.skillPercentages[i] }))
+  );
 
   // ─── EXPERIENCE ──────────────────────────────
-  readonly experience: ExperienceItem[] = [
-    {
-      period: '2022 — 2026',
-      role: 'Full Stack Developer',
-      company: 'Automa',
-      description: 'Desarrollador lider en Flutter y full stack en Angular, Java con Spring Boot, entre otras tecnologias menos usuadas',
-      tags: ['Angular', 'Java', 'Flutter', 'Docker'],
-    },
-    {
-      period: '2022 — 2025',
-      role: 'Senior Full Stack Developer',
-      company: 'DClick Solution',
-      description: 'Desarrollador lider en Flutter y full stack en Angular, Nestjs, SQL, entre otras tecnologias menos usuadas',
-      tags: ['Angular', 'Java', 'Flutter', 'Docker'],
-    },
-    {
-      period: '2021 — 2022',
-      role: 'Web Developer',
-      company: 'EMGEF',
-      description: 'Desarrollo de web empresarial. Administracion de sistemas Virtualizados, monitoreo y backup',
-      tags: ['HTML', 'CSS', 'Wordpress', 'VMWare'],
-    },
-    {
-      period: '2019 — 2020',
-      role: 'Administrador de Red',
-      company: 'ATI',
-      description: 'Administrar sistemas, implementacion de sistemas de tickets y despliegue de aplicaciones web',
-      tags: ['Proxmox', 'Linux', 'Windows', 'OTRS'],
-    },
+  private readonly experienceTags = [
+    ['Angular', 'Java', 'Flutter', 'Docker'],
+    ['Angular', 'Java', 'Flutter', 'Docker', 'Nestjs', 'Nodejs'],
+    ['HTML', 'CSS', 'Wordpress', 'VMWare'],
+    ['Proxmox', 'Linux', 'Windows', 'OTRS']
   ];
+  readonly experience = computed<ExperienceItem[]>(() =>
+    this.i18n.t().experience.map((exp, i) => ({ ...exp, tags: this.experienceTags[i] }))
+  );
 
   // ─── SOCIAL ──────────────────────────────────
   readonly socials: SocialLink[] = [
@@ -171,11 +151,11 @@ export class PortfolioDataService {
   ];
 
   // ─── TERMINAL ────────────────────────────────
-  readonly terminalLines: TerminalLine[] = [
+  readonly terminalLines = computed<TerminalLine[]>(() => [
     { text: 'whoami', type: 'command' },
-    { text: 'Full Stack Developer', type: 'info' },
+    { text: this.i18n.t().personal.role, type: 'info' },
     { text: 'cat status.txt', type: 'command' },
-    { text: 'Disponible para proyectos', type: 'success' },
+    { text: this.i18n.t().terminal.status, type: 'success' },
     { text: '', type: 'cursor' },
-  ];
+  ]);
 }

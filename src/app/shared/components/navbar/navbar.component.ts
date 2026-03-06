@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { I18nService } from '@core/i18n';
 
 @Component({
   selector: 'app-navbar',
@@ -31,7 +32,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           }
           <a routerLink="/contacto"
              class="btn-cyber bg-accent-500/10 border border-accent-500/30 text-accent-400 px-5 py-2 rounded-lg text-sm font-medium">
-            Contactar →
+            {{this.i18n.t().nav.cta}}
           </a>
         </div>
 
@@ -69,10 +70,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
   menuOpen = signal(false);
+  readonly i18n = inject(I18nService);
   navLinks = [
-    { path: '/', label: 'Inicio', exact: true },
-    { path: '/proyectos', label: 'Proyectos', exact: false },
-    { path: '/sobre-mi', label: 'Sobre Mí', exact: false },
-    { path: '/contacto', label: 'Contacto', exact: false },
+    { path: '/', label: this.i18n.t().nav.home, exact: true },
+    { path: '/proyectos', label: this.i18n.t().nav.projects, exact: false },
+    { path: '/sobre-mi', label: this.i18n.t().nav.about, exact: false },
+    { path: '/contacto', label: this.i18n.t().nav.contact, exact: false },
   ];
 }

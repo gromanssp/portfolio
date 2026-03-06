@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { I18nService } from '@core/i18n';
 import { PortfolioDataService } from '@core/services/portfolio-data.service';
 
 @Component({
@@ -18,19 +19,19 @@ import { PortfolioDataService } from '@core/services/portfolio-data.service';
               <img class="rounded-lg" width="45" src="./assets/jg.jpg" alt="logo">
               <span class="font-display font-bold text-base text-white">Portfolio</span>
             </a>
-            <p class="text-white/30 text-xs leading-relaxed max-w-xs">{{ data.bio }}</p>
+            <p class="text-white/30 text-xs leading-relaxed max-w-xs">{{ data.bio() }}</p>
           </div>
           <div>
-            <h5 class="font-display font-semibold text-white text-sm mb-4">Navegación</h5>
+            <h5 class="font-display font-semibold text-white text-sm mb-4">{{this.i18n.t().footer.navigation}}</h5>
             <div class="space-y-2">
-              <a routerLink="/" class="block text-white/30 text-xs hover:text-accent-400 transition">Inicio</a>
-              <a routerLink="/proyectos" class="block text-white/30 text-xs hover:text-accent-400 transition">Proyectos</a>
-              <a routerLink="/sobre-mi" class="block text-white/30 text-xs hover:text-accent-400 transition">Sobre Mí</a>
-              <a routerLink="/contacto" class="block text-white/30 text-xs hover:text-accent-400 transition">Contacto</a>
+              <a routerLink="/" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.home}}</a>
+              <a routerLink="/proyectos" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.projects}}</a>
+              <a routerLink="/sobre-mi" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.about}}</a>
+              <a routerLink="/contacto" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.contact}}</a>
             </div>
           </div>
           <div>
-            <h5 class="font-display font-semibold text-white text-sm mb-4">Social</h5>
+            <h5 class="font-display font-semibold text-white text-sm mb-4">{{this.i18n.t().footer.social}}</h5>
             <div class="flex gap-3">
               @for (social of data.socials; track social.label) {
                 <a [href]="social.url" target="_blank" rel="noopener noreferrer"
@@ -46,10 +47,10 @@ import { PortfolioDataService } from '@core/services/portfolio-data.service';
           </div>
         </div>
         <div class="pt-8 border-t border-white/4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="font-mono text-[10px] text-white/20">© {{ year }} {{ data.name }}. Todos los derechos reservados.</p>
+          <p class="font-mono text-[10px] text-white/20">© {{ year }} {{ data.name }}. {{this.i18n.t().footer.rights}}</p>
           <div class="flex items-center gap-2">
             <div class="w-2 h-2 rounded-full bg-neon-green animate-pulse-glow"></div>
-            <span class="font-mono text-[10px] text-white/20">Disponible para proyectos</span>
+            <span class="font-mono text-[10px] text-white/20">{{this.i18n.t().terminal.status}}</span>
           </div>
         </div>
       </div>
@@ -57,6 +58,7 @@ import { PortfolioDataService } from '@core/services/portfolio-data.service';
   `,
 })
 export class FooterComponent {
+  readonly i18n = inject(I18nService);
   readonly data = inject(PortfolioDataService);
   year = new Date().getFullYear();
 }

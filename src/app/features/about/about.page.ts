@@ -1,4 +1,5 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { I18nService } from '@core/i18n';
 import { PortfolioDataService } from '@core/services/portfolio-data.service';
 import { SectionHeaderComponent } from '@shared/components/section-header/section-header.component';
 import { SkillBarComponent } from '@shared/components/skill-bar/skill-bar.component';
@@ -15,22 +16,22 @@ import { SkillBarComponent } from '@shared/components/skill-bar/skill-bar.compon
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="flex items-center gap-3 mb-6">
           <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
-          <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">Sobre Mí</span>
+          <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{this.i18n.t().aboutPage.subtitle}}</span>
         </div>
         <h1 class="font-display font-black text-4xl md:text-6xl text-white mb-6">
-          Código con <span class="text-accent-400 glow-text">propósito</span>
+          {{this.i18n.t().aboutPage.title}} <span class="text-accent-400 glow-text">{{this.i18n.t().aboutPage.titleHighlight}}</span>
         </h1>
-        <p class="text-white/40 text-lg max-w-2xl">{{ data.bio }}</p>
+        <p class="text-white/40 text-lg max-w-2xl">{{ data.bio() }}</p>
       </div>
     </section>
 
     <!-- Experience Timeline -->
     <section class="py-16">
       <div class="max-w-4xl mx-auto px-6">
-        <app-section-header title="Experiencia" subtitle="Trayectoria" />
+        <app-section-header title="{{this.i18n.t().aboutPage.expTitle}}" subtitle="{{this.i18n.t().aboutPage.expSubtitle}}" />
         <div class="space-y-8 relative">
           <div class="absolute left-4.75 top-4 bottom-4 w-px bg-linear-to-b from-accent-500/30 via-accent-500/10 to-transparent hidden md:block"></div>
-          @for (exp of data.experience; track exp.period) {
+          @for (exp of data.experience(); track exp.period) {
             <div class="relative md:pl-14">
               <div class="hidden md:block absolute left-3.5 top-2 w-2.75 h-2.75 rounded-full border-2 border-accent-500 bg-surface-950"></div>
               <div class="p-8 rounded-2xl bg-surface-800/40 border border-white/5">
@@ -57,9 +58,9 @@ import { SkillBarComponent } from '@shared/components/skill-bar/skill-bar.compon
     <!-- Skills -->
     <section class="py-16">
       <div class="max-w-4xl mx-auto px-6">
-        <app-section-header title="Dominio Técnico" subtitle="Skills" />
+        <app-section-header title="{{this.i18n.t().aboutPage.skillsTitle}}" subtitle="{{this.i18n.t().aboutPage.skillsSubtitle}}" />
         <div class="space-y-6">
-          @for (skill of data.skills; track skill.label) {
+          @for (skill of data.skills(); track skill.label) {
             <app-skill-bar [label]="skill.label" [percentage]="skill.percentage" />
           }
         </div>
@@ -69,7 +70,7 @@ import { SkillBarComponent } from '@shared/components/skill-bar/skill-bar.compon
     <!-- Values -->
     <section class="py-24">
       <div class="max-w-7xl mx-auto px-6">
-        <app-section-header title="Cómo Trabajo" subtitle="Filosofía" />
+        <app-section-header title="{{this.i18n.t().aboutPage.valuesTitle}}" subtitle="{{this.i18n.t().aboutPage.valuesSubtitle}}" />
         <div class="grid md:grid-cols-3 gap-6">
           @for (val of values; track val.title) {
             <div class="p-8 rounded-2xl bg-surface-800/30 border border-white/4 text-center">
@@ -84,11 +85,8 @@ import { SkillBarComponent } from '@shared/components/skill-bar/skill-bar.compon
   `,
 })
 export class AboutPage {
+  readonly i18n = inject(I18nService);
   readonly data = inject(PortfolioDataService);
 
-  values = [
-    { emoji: '🧹', title: 'Clean Code', description: 'Código legible, mantenible y bien testeado. SOLID, DRY y patrones probados.' },
-    { emoji: '🚀', title: 'Rendimiento', description: 'Optimización desde el primer commit. Lazy loading, caching y métricas Core Web Vitals.' },
-    { emoji: '🤝', title: 'Colaboración', description: 'Comunicación clara, code reviews constructivos y documentación que aporta valor real.' },
-  ];
+  values = this.i18n.t().values;
 }
