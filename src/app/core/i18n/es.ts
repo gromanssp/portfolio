@@ -48,17 +48,17 @@ export const es: Translations = {
   projectsPage: {
     subtitle: 'Portfolio',
     title: 'Mis',
-    titleHighlight: 'Proyectos',
-    description: 'Una selección de proyectos personales y profesionales donde he aplicado diferentes tecnologías y arquitecturas.',
+    titleHighlight: 'proyectos destacados',
+    description: 'Una selección de proyectos personales y profesionales que ha lo largo de mi carrera he podido realizar con distintos clientes',
   },
 
   // ─── PROJECT DESCRIPTIONS ────────
   projectDescriptions: {
-    'hospital-app': 'Aplicación Full stack para gestión de médicos, hospitales, con panel de administración.',
-    'katapulk': 'Entrega de paqueteria distribuidas por el mapa con calculo de ruta y navegación.',
-    'credit-card': 'Sitio web para configurar una tarjeta electronica con datos personalizados.',
-    'vitrina-store': 'Plataforma de comercio electrónico completa con panel de administración, pagos integrados y analíticas en tiempo real.',
-    'mobile-tiktock': 'Aplicación móvil para reaccionar a videos estilo red social.',
+    'hospital-app': 'Sistema de administración para la gestión en hospitales de médicos, con control de usuarios, sistema de busqueda, autenticación y registro, asi como roles de usuarios y premisos',
+    'katapulk': 'Entrega de paquetes distribuidas por el mapa, pudiendo revisar ordenes, escanear, imprimir y calcular la ruta mas cercana.',
+    'credit-card': 'Sitio web para configurar una tarjeta electrónica con datos personalizados.',
+    'vitrina-store': 'Plataforma de comercio electrónico completa con panel de administración, pagos integrados y analíticas en tiempo real, sistema de gestion de articulos para usuarios y clientes.',
+    'mobile-tiktock': 'Aplicación móvil sencilla para reaccionar a videos estilo red social.',
     'password-generator': 'Plataforma para generar passwords seguros automaticos con un solo click.',
   },
 

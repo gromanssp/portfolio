@@ -42,15 +42,15 @@ export const en: Translations = {
   projectsPage: {
     subtitle: 'Portfolio',
     title: 'My',
-    titleHighlight: 'Projects',
+    titleHighlight: 'Featured Projects',
     description: 'A curated selection of personal and professional projects where I applied different technologies and architectures.',
   },
 
   projectDescriptions: {
-    'hospital-app': 'Full-stack application for managing doctors and hospitals, with an administration panel.',
-    'katapulk': 'Parcel delivery distributed on the map with route calculation and navigation.',
+    'hospital-app': 'Administration system for the management of doctors in hospitals, with user control, search system, authentication and registration, as well as user roles and premises',
+    'katapulk': 'Delivery of packages distributed on the map, being able to review orders, scan, print and calculate the nearest route.',
     'credit-card': 'Website to configure an electronic card with personalized data.',
-    'vitrina-store': 'Complete e-commerce platform with an administration panel, integrated payments, and real-time analytics.',
+    'vitrina-store': 'Complete e-commerce platform with administration panel, integrated payments and real-time analytics, article management system for users and clients.',
     'mobile-tiktock': 'Mobile application to react to videos in a social media style.',
     'password-generator': 'Platform to generate secure passwords automatically with a single click.',
   },

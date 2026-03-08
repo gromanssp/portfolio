@@ -47,10 +47,10 @@ export const it: Translations = {
   },
 
   projectDescriptions: {
-    'hospital-app': 'Applicazione full-stack per la gestione di medici e ospedali, con pannello di amministrazione.',
-    'katapulk': 'Consegna di pacchi distribuita sulla mappa con calcolo del percorso e navigazione.',
+    'hospital-app': 'Sistema di amministrazione per la gestione degli ospedali medici, con controllo degli utenti, sistema di ricerca, autenticazione e registrazione, così come ruoli degli utenti e premissie',
+    'katapulk': 'Consegna di pacchi distribuiti sulla mappa, potendo rivedere gli ordini, scansionare, stampare e calcolare il percorso più vicino.',
     'credit-card': 'Sito web per configurare una carta elettronica con dati personalizzati.',
-    'vitrina-store': 'Piattaforma di e-commerce completa con pannello di amministrazione, pagamenti integrati e analisi in tempo reale.',
+    'vitrina-store': 'Piattaforma di e-commerce completa con pannello di amministrazione, pagamenti integrati e analisi in tempo reale, sistema di gestione degli articoli per utenti e clienti.',
     'mobile-tiktock': 'Applicazione mobile per reagire ai video in stile social network.',
     'password-generator': 'Piattaforma per generare password sicure automaticamente con un solo clic.',
   },

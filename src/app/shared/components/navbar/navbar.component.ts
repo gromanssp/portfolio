@@ -1,11 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { I18nService } from '@core/i18n';
+import { LangSwitcherComponent } from '../lang-switcher/lang-switcher.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, LangSwitcherComponent],
   template: `
     <nav class="fixed top-0 w-full z-40 backdrop-blur-xl bg-surface-950/70 border-b border-white/4">
       <div class="max-w-7xl mx-auto p-8 px-6 py-4 flex items-center justify-between">
@@ -30,6 +31,7 @@ import { I18nService } from '@core/i18n';
               {{ link.label }}
             </a>
           }
+          <app-lang-switcher/>
           <a routerLink="/contacto"
              class="btn-cyber bg-accent-500/10 border border-accent-500/30 text-accent-400 px-5 py-2 rounded-lg text-sm font-medium">
             {{this.i18n.t().nav.cta}}
