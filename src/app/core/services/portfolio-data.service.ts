@@ -94,7 +94,7 @@ export class PortfolioDataService {
       tags: ['Angular'],
       color: 'green',
       colorClasses: { bg: 'bg-green-500/10', text: 'text-green-400/70', border: 'border-green-500/10' },
-      links: [{ label: 'Demo', url: 'https://passgenerator-eosin.vercel.app/' }],
+      links: [{ label: 'Demo', url: 'https://gromanssp.github.io/password-generator/' }],
       icon: ''
     }
   ];
