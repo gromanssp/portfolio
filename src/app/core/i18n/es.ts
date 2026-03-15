@@ -20,7 +20,7 @@ export const es: Translations = {
   // ─── PERSONAL / DATA ─────────────
   personal: {
     role: 'Full Stack Developer',
-    bio: 'Desarrollador Full Stack apasionado por crear experiencias digitales de alto rendimiento con arquitecturas modernas, clean code y diseño centrado en el usuario.',
+    bio: 'Ayudo a crear productos digitales modernos combinando desarrollo web y móvil. Construyo aplicaciones rápidas, escalables y con experiencias de usuario cuidadas utilizando tecnologías modernas del ecosistema JavaScript.',
     location: 'España',
   },
 

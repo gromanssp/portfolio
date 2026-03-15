@@ -9,7 +9,7 @@ import { Lang } from '@core/i18n';
   template: `
     <div class="relative">
       <button (click)="open.update(v => !v)"
-              class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-white/10
+              class="flex hover:cursor-pointer items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-white/10
                      text-white/60 hover:text-white hover:border-accent-500/30 transition text-xs font-mono">
         <span>{{ currentFlag() }}</span>
         <span class="uppercase">{{ i18n.currentLang() }}</span>
@@ -25,7 +25,7 @@ import { Lang } from '@core/i18n';
              style="animation: fade-in 0.2s ease forwards">
           @for (lang of i18n.languages; track lang.code) {
             <button (click)="selectLang(lang.code)"
-                    class="w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm transition"
+                    class="w-full flex hover:cursor-pointer items-center gap-3 px-4 py-2.5 text-left text-sm transition"
                     [class]="lang.code === i18n.currentLang()
                       ? 'text-accent-400 bg-accent-500/10'
                       : 'text-white/60 hover:text-white hover:bg-white/3'">

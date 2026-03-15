@@ -17,7 +17,7 @@ export const it: Translations = {
 
   personal: {
     role: 'Full Stack Developer',
-    bio: 'Sviluppatore Full Stack appassionato di creare esperienze digitali ad alte prestazioni con architetture moderne, clean code e design incentrato sull\'utente.',
+    bio: 'Aiuto a creare prodotti digitali moderni combinando sviluppo web e mobile. Realizzo applicazioni veloci, scalabili e con esperienze utente curate utilizzando tecnologie moderne dell’ecosistema JavaScript.',
     location: 'Madrid, Spagna',
   },
 
