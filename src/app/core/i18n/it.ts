@@ -46,7 +46,7 @@ export const it: Translations = {
     'katapulk': 'Consegna di pacchi distribuiti sulla mappa, potendo rivedere gli ordini, scansionare, stampare e calcolare il percorso più vicino.',
     'credit-card': 'Sito web per configurare una carta elettronica con dati personalizzati.',
     'vitrina-store': 'Piattaforma di e-commerce completa con pannello di amministrazione, pagamenti integrati e analisi in tempo reale, sistema di gestione degli articoli per utenti e clienti.',
-    'mobile-tiktock': 'Applicazione mobile per reagire ai video in stile social network.',
+    'ionic-ui': 'Applicazione mobile per reutilizzare componenti di Ionic.',
     'password-generator': 'Piattaforma per generare password sicure automaticamente con un solo clic.',
   },
 

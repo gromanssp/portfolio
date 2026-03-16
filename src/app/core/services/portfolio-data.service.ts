@@ -76,12 +76,12 @@ export class PortfolioDataService {
       icon: ''
     },
     {
-      id: 'mobile-tiktock',
-      title: 'Tok tik Clone',
-      tags: ['Flutter'],
+      id: 'ionic-ui',
+      title: 'Ionic UI',
+      tags: ['Ionic', 'Angular', 'TypeScript'],
       color: 'pink',
       colorClasses: { bg: 'bg-pink-500/10', text: 'text-pink-400/70', border: 'border-pink-500/10' },
-      links: [{ label: 'GitHub', url: '#' }],
+      links: [{ label: 'GitHub', url: 'https://ionic-ui.vercel.app/components' }],
       icon: ''
     },
     {
