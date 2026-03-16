@@ -76,23 +76,23 @@ export class PortfolioDataService {
       icon: ''
     },
     {
-      id: 'ionic-ui',
-      title: 'Ionic UI',
-      tags: ['Ionic', 'Angular', 'TypeScript'],
-      color: 'pink',
-      colorClasses: { bg: 'bg-pink-500/10', text: 'text-pink-400/70', border: 'border-pink-500/10' },
-      links: [{ label: 'GitHub', url: 'https://ionic-ui.vercel.app/components' }],
-      icon: ''
-    },
-    {
       id: 'password-generator',
       title: 'Password Generator',
       tags: ['Angular'],
       color: 'green',
       colorClasses: { bg: 'bg-green-500/10', text: 'text-green-400/70', border: 'border-green-500/10' },
-      links: [{ label: 'Demo', url: 'https://password-generator-mocha-three.vercel.app/' }],
+      links: [{ label: 'GitHub', url: 'https://github.com/gromanssp/password-generator' }, { label: 'Demo', url: 'https://password-generator-mocha-three.vercel.app/' }],
       icon: ''
-    }
+    },
+    {
+      id: 'ionic-ui',
+      title: 'Ionic UI',
+      tags: ['Ionic', 'Angular', 'TypeScript'],
+      color: 'blue',
+      colorClasses: { bg: 'bg-blue-500/10', text: 'text-blue-400/70', border: 'border-blue-500/10' },
+      links: [{ label: 'Demo', url: 'https://ionic-ui.vercel.app/components' }],
+      icon: 'M22.922 7.027l-.103-.23-.169.188c-.408.464-.928.82-1.505 1.036l-.159.061.066.155a9.745 9.745 0 0 1 .75 3.759c0 5.405-4.397 9.806-9.806 9.806-5.409 0-9.802-4.397-9.802-9.802 0-5.405 4.402-9.806 9.806-9.806 1.467 0 2.883.319 4.2.947l.155.075.066-.155a3.767 3.767 0 0 1 1.106-1.453l.197-.159-.225-.117A11.905 11.905 0 0 0 12.001.001c-6.619 0-12 5.381-12 12s5.381 12 12 12 12-5.381 12-12c0-1.73-.361-3.403-1.078-4.973zM12 6.53A5.476 5.476 0 0 0 6.53 12 5.476 5.476 0 0 0 12 17.47 5.476 5.476 0 0 0 17.47 12 5.479 5.479 0 0 0 12 6.53zm10.345-2.007a2.494 2.494 0 1 1-4.988 0 2.494 2.494 0 0 1 4.988 0z'
+    },
   ];
 
   readonly projects = computed<Project[]>(() => {
