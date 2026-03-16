@@ -6,19 +6,17 @@ export const it: Translations = {
     projects: 'Progetti',
     about: 'Chi Sono',
     contact: 'Contatti',
-    cta: 'Contattami →',
   },
 
   hero: {
     greeting: 'Ciao, sono',
     viewProjects: 'Vedi Progetti',
-    contactMe: 'Contattami',
   },
 
   personal: {
     role: 'Full Stack Developer',
-    bio: 'Aiuto a creare prodotti digitali moderni combinando sviluppo web e mobile. Realizzo applicazioni veloci, scalabili e con esperienze utente curate utilizzando tecnologie moderne dell’ecosistema JavaScript.',
-    location: 'Madrid, Spagna',
+    bio: 'Aiuto a creare prodotti digitali moderni combinando sviluppo web e mobile. Realizzo applicazioni veloci, scalabili e con esperienze utente curate utilizzando tecnologie moderne dell\'ecosistema JavaScript.',
+    location: 'Spagna',
   },
 
   stats: {
@@ -34,9 +32,6 @@ export const it: Translations = {
     viewAll: 'Vedi tutti i progetti',
     techTitle: 'Il Mio Stack Tecnologico',
     techSubtitle: 'Strumenti',
-    ctaTitle: 'Hai un progetto\nin mente?',
-    ctaDescription: 'Sono disponibile per freelance, collaborazioni e opportunità interessanti.',
-    ctaButton: 'Parliamone →',
   },
 
   projectsPage: {
@@ -47,7 +42,7 @@ export const it: Translations = {
   },
 
   projectDescriptions: {
-    'hospital-app': 'Sistema di amministrazione per la gestione degli ospedali medici, con controllo degli utenti, sistema di ricerca, autenticazione e registrazione, così come ruoli degli utenti e premissie',
+    'hospital-app': 'Sistema di amministrazione per la gestione degli ospedali medici, con controllo degli utenti, sistema di ricerca, autenticazione e registrazione, così come ruoli degli utenti e permessi',
     'katapulk': 'Consegna di pacchi distribuiti sulla mappa, potendo rivedere gli ordini, scansionare, stampare e calcolare il percorso più vicino.',
     'credit-card': 'Sito web per configurare una carta elettronica con dati personalizzati.',
     'vitrina-store': 'Piattaforma di e-commerce completa con pannello di amministrazione, pagamenti integrati e analisi in tempo reale, sistema di gestione degli articoli per utenti e clienti.',
@@ -110,33 +105,10 @@ export const it: Translations = {
 
   contactPage: {
     subtitle: 'Contatti',
-    title: 'Lavoriamo',
-    titleHighlight: 'insieme',
-    description: 'Se hai un progetto, un\'idea o semplicemente vuoi connetterti, scrivimi.',
-    formTitle: 'Inviami un messaggio',
-    labelName: 'Nome',
-    labelEmail: 'Email',
-    labelSubject: 'Oggetto',
-    labelMessage: 'Messaggio',
-    placeholderName: 'Il tuo nome',
-    placeholderEmail: 'tu@email.com',
-    placeholderMessage: 'Raccontami del tuo progetto o idea...',
-    selectSubject: 'Seleziona un motivo',
-    subjectOptions: ['Progetto Freelance', 'Opportunità Lavorativa', 'Collaborazione', 'Solo un saluto 👋'],
-    sending: 'Invio in corso...',
-    send: 'Invia Messaggio →',
-    successTitle: 'Messaggio Inviato!',
-    successDescription: 'Ti rispondo entro 24 ore. Grazie!',
-    infoTitle: 'Informazioni',
-    infoEmail: 'Email',
-    infoLocation: 'Posizione',
-    availabilityTitle: 'Disponibilità',
-    freelance: 'Freelance',
-    fulltime: 'Full-time',
-    remote: 'Remoto',
-    available: 'Disponibile',
-    openToOffers: 'Aperto a offerte',
-    preferred: 'Preferito',
+    title: 'Connettiti',
+    titleHighlight: 'con me',
+    description: 'Puoi trovarmi su GitHub e LinkedIn.',
+    connectWith: 'I miei profili',
   },
 
   terminal: {

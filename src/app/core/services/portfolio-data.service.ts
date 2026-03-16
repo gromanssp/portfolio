@@ -18,13 +18,9 @@ export class PortfolioDataService {
 
   // ─── PERSONAL INFO ───────────────────────────
   readonly name = 'Jorge González Román';
-  readonly email = 'groman.ssp@gmail.com';
-  readonly phone = '+34 600 000 000';
-  readonly location = 'España';
   // ─── TRANSLATED COMPUTED FIELDS ──────────────
   readonly role = computed(() => this.i18n.t().personal.role);
   readonly bio = computed(() => this.i18n.t().personal.bio);
-  readonly infoLocation = computed(() => this.i18n.t().contactPage.infoLocation)
 
   // ─── STATS ───────────────────────────────────
   readonly stats = computed<Stat[]>(() => {

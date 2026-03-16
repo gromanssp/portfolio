@@ -42,10 +42,6 @@ import { I18nService } from '@core/i18n';
                class="btn-cyber bg-linear-to-r from-accent-500 to-cyan-500 text-surface-950 px-8 py-3.5 rounded-xl font-semibold text-sm tracking-wide">
               {{this.i18n.t().hero.viewProjects}}
             </a>
-            <a routerLink="/contacto"
-               class="btn-cyber border border-white/10 text-white/80 px-8 py-3.5 rounded-xl font-medium text-sm hover:border-accent-500/30 hover:text-accent-400">
-              {{this.i18n.t().hero.contactMe}}
-            </a>
           </div>
 
           <div class="slide-up-d4 flex flex-wrap gap-2 mt-10">
@@ -134,23 +130,6 @@ import { I18nService } from '@core/i18n';
             </div>
           }
         </div>
-      </div>
-    </section>
-
-    <!-- ════════ CTA ════════ -->
-    <section class="py-32 relative">
-      <div class="absolute inset-0 bg-linear-to-b from-transparent via-accent-500/3 to-transparent"></div>
-      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <h2 class="font-display font-extrabold text-3xl md:text-5xl text-white mb-6">
-          {{this.i18n.t().home.ctaTitle}}
-        </h2>
-        <p class="text-white/40 text-lg mb-10 max-w-xl mx-auto">
-          {{this.i18n.t().home.ctaDescription}}
-        </p>
-        <a routerLink="/contacto"
-           class="btn-cyber bg-linear-to-r from-accent-500 to-cyan-500 text-surface-950 px-10 py-4 rounded-xl font-semibold tracking-wide text-sm">
-          {{this.i18n.t().home.ctaButton}}
-        </a>
       </div>
     </section>
   `,

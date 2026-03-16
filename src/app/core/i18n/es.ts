@@ -7,14 +7,12 @@ export const es: Translations = {
     projects: 'Proyectos',
     about: 'Sobre Mí',
     contact: 'Contacto',
-    cta: 'Contactar →',
   },
 
   // ─── HERO ────────────────────────
   hero: {
     greeting: 'Hola, soy',
     viewProjects: 'Ver Proyectos',
-    contactMe: 'Contactar',
   },
 
   // ─── PERSONAL / DATA ─────────────
@@ -39,9 +37,6 @@ export const es: Translations = {
     viewAll: 'Ver todos los proyectos',
     techTitle: 'Mi Stack Tecnológico',
     techSubtitle: 'Herramientas',
-    ctaTitle: '¿Tienes un proyecto\nen mente?',
-    ctaDescription: 'Estoy disponible para freelance, colaboraciones y oportunidades interesantes.',
-    ctaButton: 'Hablemos →',
   },
 
   // ─── PROJECTS PAGE ───────────────
@@ -49,12 +44,12 @@ export const es: Translations = {
     subtitle: 'Portfolio',
     title: 'Mis',
     titleHighlight: 'proyectos destacados',
-    description: 'Una selección de proyectos personales y profesionales que ha lo largo de mi carrera he podido realizar con distintos clientes',
+    description: 'Una selección de proyectos personales y profesionales que a lo largo de mi carrera he podido realizar con distintos clientes',
   },
 
   // ─── PROJECT DESCRIPTIONS ────────
   projectDescriptions: {
-    'hospital-app': 'Sistema de administración para la gestión en hospitales de médicos, con control de usuarios, sistema de busqueda, autenticación y registro, asi como roles de usuarios y premisos',
+    'hospital-app': 'Sistema de administración para la gestión en hospitales de médicos, con control de usuarios, sistema de busqueda, autenticación y registro, asi como roles de usuarios y permisos',
     'katapulk': 'Entrega de paquetes distribuidas por el mapa, pudiendo revisar ordenes, escanear, imprimir y calcular la ruta mas cercana.',
     'credit-card': 'Sitio web para configurar una tarjeta electrónica con datos personalizados.',
     'vitrina-store': 'Plataforma de comercio electrónico completa con panel de administración, pagos integrados y analíticas en tiempo real, sistema de gestion de articulos para usuarios y clientes.',
@@ -122,33 +117,10 @@ export const es: Translations = {
   // ─── CONTACT PAGE ────────────────
   contactPage: {
     subtitle: 'Contacto',
-    title: '¿Trabajamos',
-    titleHighlight: 'juntos',
-    description: 'Si tienes un proyecto, una idea o simplemente quieres conectar, escríbeme.',
-    formTitle: 'Envíame un mensaje',
-    labelName: 'Nombre',
-    labelEmail: 'Email',
-    labelSubject: 'Asunto',
-    labelMessage: 'Mensaje',
-    placeholderName: 'Tu nombre',
-    placeholderEmail: 'tu@email.com',
-    placeholderMessage: 'Cuéntame sobre tu proyecto o idea...',
-    selectSubject: 'Selecciona un motivo',
-    subjectOptions: ['Proyecto Freelance', 'Oportunidad Laboral', 'Colaboración', 'Solo quiero saludar 👋'],
-    sending: 'Enviando...',
-    send: 'Enviar Mensaje →',
-    successTitle: '¡Mensaje Enviado!',
-    successDescription: 'Te respondo en menos de 24 horas. ¡Gracias!',
-    infoTitle: 'Información',
-    infoEmail: 'Email',
-    infoLocation: 'Ubicación',
-    availabilityTitle: 'Disponibilidad',
-    freelance: 'Freelance',
-    fulltime: 'Full-time',
-    remote: 'Remoto',
-    available: 'Disponible',
-    openToOffers: 'Abierto a ofertas',
-    preferred: 'Preferido',
+    title: 'Conecta',
+    titleHighlight: 'conmigo',
+    description: 'Puedes encontrarme en GitHub y LinkedIn.',
+    connectWith: 'Mis perfiles',
   },
 
   // ─── TERMINAL ────────────────────

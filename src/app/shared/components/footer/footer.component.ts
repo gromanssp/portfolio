@@ -13,9 +13,6 @@ import { PortfolioDataService } from '@core/services/portfolio-data.service';
         <div class="grid md:grid-cols-3 gap-10 mb-12">
           <div>
             <a routerLink="/" class="flex items-center gap-2 mb-4">
-              <!-- <div class="w-7 h-7 rounded-md bg-linear-to-br from-accent-500 to-cyan-500 flex items-center justify-center">
-                <span class="font-display font-extrabold text-surface-950 text-[10px]">&lt;/&gt;</span>
-              </div> -->
               <img class="rounded-lg" width="45" src="./assets/jg.jpg" alt="logo">
               <span class="font-display font-bold text-base text-white">Portfolio</span>
             </a>
@@ -27,7 +24,6 @@ import { PortfolioDataService } from '@core/services/portfolio-data.service';
               <a routerLink="/" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.home}}</a>
               <a routerLink="/proyectos" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.projects}}</a>
               <a routerLink="/sobre-mi" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.about}}</a>
-              <a routerLink="/contacto" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.contact}}</a>
             </div>
           </div>
           <div>

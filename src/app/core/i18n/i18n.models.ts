@@ -12,13 +12,11 @@ export interface Translations {
     projects: string;
     about: string;
     contact: string;
-    cta: string;
   };
 
   hero: {
     greeting: string;
     viewProjects: string;
-    contactMe: string;
   };
 
   personal: {
@@ -40,9 +38,6 @@ export interface Translations {
     viewAll: string;
     techTitle: string;
     techSubtitle: string;
-    ctaTitle: string;
-    ctaDescription: string;
-    ctaButton: string;
   };
 
   projectsPage: {
@@ -86,30 +81,7 @@ export interface Translations {
     title: string;
     titleHighlight: string;
     description: string;
-    formTitle: string;
-    labelName: string;
-    labelEmail: string;
-    labelSubject: string;
-    labelMessage: string;
-    placeholderName: string;
-    placeholderEmail: string;
-    placeholderMessage: string;
-    selectSubject: string;
-    subjectOptions: string[];
-    sending: string;
-    send: string;
-    successTitle: string;
-    successDescription: string;
-    infoTitle: string;
-    infoEmail: string;
-    infoLocation: string;
-    availabilityTitle: string;
-    freelance: string;
-    fulltime: string;
-    remote: string;
-    available: string;
-    openToOffers: string;
-    preferred: string;
+    connectWith: string;
   };
 
   terminal: {

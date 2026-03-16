@@ -6,13 +6,11 @@ export const en: Translations = {
     projects: 'Projects',
     about: 'About',
     contact: 'Contact',
-    cta: 'Get in touch →',
   },
 
   hero: {
     greeting: "Hi, I'm",
     viewProjects: 'View Projects',
-    contactMe: 'Contact Me',
   },
 
   personal: {
@@ -34,9 +32,6 @@ export const en: Translations = {
     viewAll: 'View all projects',
     techTitle: 'My Tech Stack',
     techSubtitle: 'Tools',
-    ctaTitle: 'Have a project\nin mind?',
-    ctaDescription: "I'm available for freelance, collaborations and exciting opportunities.",
-    ctaButton: "Let's talk →",
   },
 
   projectsPage: {
@@ -47,7 +42,7 @@ export const en: Translations = {
   },
 
   projectDescriptions: {
-    'hospital-app': 'Administration system for the management of doctors in hospitals, with user control, search system, authentication and registration, as well as user roles and premises',
+    'hospital-app': 'Administration system for the management of doctors in hospitals, with user control, search system, authentication and registration, as well as user roles and permissions',
     'katapulk': 'Delivery of packages distributed on the map, being able to review orders, scan, print and calculate the nearest route.',
     'credit-card': 'Website to configure an electronic card with personalized data.',
     'vitrina-store': 'Complete e-commerce platform with administration panel, integrated payments and real-time analytics, article management system for users and clients.',
@@ -110,33 +105,10 @@ export const en: Translations = {
 
   contactPage: {
     subtitle: 'Contact',
-    title: 'Shall we work',
-    titleHighlight: 'together',
-    description: "If you have a project, an idea or just want to connect, drop me a line.",
-    formTitle: 'Send me a message',
-    labelName: 'Name',
-    labelEmail: 'Email',
-    labelSubject: 'Subject',
-    labelMessage: 'Message',
-    placeholderName: 'Your name',
-    placeholderEmail: 'you@email.com',
-    placeholderMessage: 'Tell me about your project or idea...',
-    selectSubject: 'Select a reason',
-    subjectOptions: ['Freelance Project', 'Job Opportunity', 'Collaboration', 'Just saying hi 👋'],
-    sending: 'Sending...',
-    send: 'Send Message →',
-    successTitle: 'Message Sent!',
-    successDescription: "I'll get back to you within 24 hours. Thanks!",
-    infoTitle: 'Information',
-    infoEmail: 'Email',
-    infoLocation: 'Location',
-    availabilityTitle: 'Availability',
-    freelance: 'Freelance',
-    fulltime: 'Full-time',
-    remote: 'Remote',
-    available: 'Available',
-    openToOffers: 'Open to offers',
-    preferred: 'Preferred',
+    title: 'Connect',
+    titleHighlight: 'with me',
+    description: 'You can find me on GitHub and LinkedIn.',
+    connectWith: 'My profiles',
   },
 
   terminal: {

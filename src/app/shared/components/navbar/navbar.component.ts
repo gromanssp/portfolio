@@ -12,9 +12,6 @@ import { LangSwitcherComponent } from '../lang-switcher/lang-switcher.component'
       <div class="max-w-7xl mx-auto p-8 px-6 py-4 flex items-center justify-between">
 
         <a routerLink="/" class="flex items-center gap-3 group">
-          <!-- <div class="w-9 h-9 rounded-lg bg-linear-to-br from-accent-500 to-cyan-500 flex items-center justify-center">
-            <span class="font-display font-extrabold text-surface-950 text-sm">&lt;/&gt;</span>
-          </div> -->
           <img class="rounded-lg" width="45" src="./assets/jg.jpg" alt="logo">
           <span class="font-display font-bold text-lg tracking-tight text-white">
             Portfolio
@@ -32,10 +29,6 @@ import { LangSwitcherComponent } from '../lang-switcher/lang-switcher.component'
             </a>
           }
           <app-lang-switcher/>
-          <a routerLink="/contacto"
-             class="btn-cyber bg-accent-500/10 border border-accent-500/30 text-accent-400 px-5 py-2 rounded-lg text-sm font-medium">
-            {{this.i18n.t().nav.cta}}
-          </a>
         </div>
 
         <!-- Mobile toggle -->
