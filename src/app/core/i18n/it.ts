@@ -48,6 +48,7 @@ export const it: Translations = {
     'vitrina-store': 'Piattaforma di e-commerce completa con pannello di amministrazione, pagamenti integrati e analisi in tempo reale, sistema di gestione degli articoli per utenti e clienti.',
     'ionic-ui': 'Applicazione mobile per reutilizzare componenti di Ionic.',
     'password-generator': 'Piattaforma per generare password sicure automaticamente con un solo clic.',
+    'groman-2' : 'Modello di dashboard Angular 21 moderno Un pannello di amministrazione premium in vetromorfismo scuro con 10+ componenti riutilizzabili, 12 temi di colore e una vetrina completa dei componenti.'
   },
 
   aboutPage: {
