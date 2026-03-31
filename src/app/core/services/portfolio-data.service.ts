@@ -105,9 +105,22 @@ export class PortfolioDataService {
     
   ];
 
+  // Map of fallback preview images for projects without a Demo URL
+  private readonly fallbackPreviews: Record<string, string> = {
+    'katapulk': 'assets/previews/delivery-preview.png',
+    'vitrina-store': 'assets/previews/vitrina-preview.png',
+  };
+
   readonly projects = computed<Project[]>(() => {
     const descs = this.i18n.t().projectDescriptions;
-    return this.projectsBase.map((p) => ({ ...p, description: descs[p.id] ?? '' }));
+    return this.projectsBase.map((p) => {
+      const demoLink = p.links.find(l => l.label === 'Demo');
+      const demoUrl = demoLink?.url;
+      const previewImage = demoUrl
+        ? `https://api.microlink.io?url=${encodeURIComponent(demoUrl)}&screenshot=true&embed=screenshot.url`
+        : this.fallbackPreviews[p.id] ?? '';
+      return { ...p, description: descs[p.id] ?? '', demoUrl, previewImage };
+    });
   });
 
   readonly featuredProjects = computed(() => this.projects().filter((p) => p.featured));

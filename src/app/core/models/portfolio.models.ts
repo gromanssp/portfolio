@@ -12,6 +12,8 @@ export interface Project {
   links: { label: string; url: string }[];
   featured?: boolean;
   icon: string;
+  demoUrl?: string;
+  previewImage?: string;
 }
 
 export interface TagColors {
