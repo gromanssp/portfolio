@@ -12,7 +12,7 @@ import { PortfolioDataService } from '@core/services/portfolio-data.service';
       <div class="absolute top-20 left-1/2 w-96 h-96 bg-accent-500/5 rounded-full blur-[120px] -translate-x-1/2"></div>
       <div class="max-w-2xl mx-auto px-6 relative z-10 text-center">
         <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{ i18n.t().contactPage.subtitle }}</span>
-        <h1 class="font-display font-black text-4xl md:text-6xl text-white mt-4 mb-6">
+        <h1 class="font-display font-bold text-4xl md:text-6xl text-white mt-4 mb-6 leading-tight tracking-tighter">
           {{ i18n.t().contactPage.title }} <span class="text-accent-400 glow-text">{{ i18n.t().contactPage.titleHighlight }}</span>
         </h1>
         <p class="text-white/40 text-lg max-w-md mx-auto mb-16">

@@ -17,7 +17,7 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
           <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
           <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{this.i18n.t().projectsPage.subtitle}}</span>
         </div>
-        <h1 class="font-display font-black text-4xl md:text-6xl text-white mb-6">
+        <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 leading-tight tracking-tighter">
           {{this.i18n.t().projectsPage.title}} <span class="text-accent-400 glow-text">{{this.i18n.t().projectsPage.titleHighlight}}</span>
         </h1>
         <p class="text-white/40 text-lg max-w-2xl">

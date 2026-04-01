@@ -25,10 +25,10 @@ import { I18nService } from '@core/i18n';
         <div>
           <div class="slide-up flex items-center gap-3 mb-6">
             <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
-            <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{ data.role() }}</span>
+            <span class="font-mono text-xs text-accent-400 tracking-[0.15em] uppercase">{{ data.role() }}</span>
           </div>
 
-          <h1 class="slide-up-d1 font-display font-black text-5xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
+          <h1 class="slide-up-d1 font-display font-bold text-5xl lg:text-7xl leading-tight tracking-tighter mb-6">
             <span class="text-white">{{this.i18n.t().hero.greeting}}</span><br>
             <span class="bg-linear-to-r from-accent-400 via-cyan-300 to-accent-400 bg-clip-text text-transparent animate-gradient">
               {{ data.name }}
@@ -77,7 +77,7 @@ import { I18nService } from '@core/i18n';
       </div>
 
       <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 animate-float">
-        <span class="font-mono text-[10px] text-accent-400 tracking-[0.2em]">SCROLL</span>
+        <span class="font-mono text-[10px] text-accent-400 tracking-[0.1em]">SCROLL</span>
         <div class="w-px h-8 bg-linear-to-b from-accent-400 to-transparent"></div>
       </div>
     </section>
@@ -88,10 +88,10 @@ import { I18nService } from '@core/i18n';
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           @for (stat of data.stats(); track stat.label; let i = $index) {
             <div class="text-center p-8 rounded-2xl bg-surface-800/30 border border-white/4 glow-border">
-              <div class="font-display font-extrabold text-4xl md:text-5xl text-white mb-2">
+              <div class="font-display font-bold text-4xl md:text-5xl text-white mb-2 tracking-tight">
                 {{ counters()[i] }}{{ stat.suffix ?? '' }}
               </div>
-              <div class="font-mono text-[10px] text-accent-400 tracking-[0.2em] uppercase">{{ stat.label }}</div>
+              <div class="font-mono text-[10px] text-accent-400 tracking-[0.1em] uppercase">{{ stat.label }}</div>
             </div>
           }
         </div>
@@ -125,7 +125,7 @@ import { I18nService } from '@core/i18n';
           @for (tech of data.techStack; track tech.name) {
             <div class="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-800/20 border border-white/3 transition-all hover:bg-surface-800/40 cursor-default"
                  [class]="tech.hoverBorder">
-              <div class="text-2xl group-hover:scale-110 transition-transform">{{ tech.emoji }}</div>
+              <svg class="w-8 h-8 text-white" [innerHTML]="tech.emoji"></svg>
               <span class="font-mono text-[10px] text-white/40 group-hover:text-white/70 transition">{{ tech.name }}</span>
             </div>
           }

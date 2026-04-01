@@ -18,7 +18,7 @@ import { SkillBarComponent } from '@shared/components/skill-bar/skill-bar.compon
           <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
           <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{this.i18n.t().aboutPage.subtitle}}</span>
         </div>
-        <h1 class="font-display font-black text-4xl md:text-6xl text-white mb-6">
+        <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 leading-tight tracking-tighter">
           {{this.i18n.t().aboutPage.title}} <span class="text-accent-400 glow-text">{{this.i18n.t().aboutPage.titleHighlight}}</span>
         </h1>
         <p class="text-white/40 text-lg max-w-2xl">{{ data.bio() }}</p>
