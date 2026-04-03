@@ -15,7 +15,7 @@ export const en: Translations = {
 
   personal: {
     role: 'Full Stack Developer',
-    bio: 'I help create modern digital products by combining web and mobile development. I build fast, scalable applications with carefully crafted user experiences using modern technologies from the JavaScript ecosystem.',
+    bio: 'Telecommunications engineer with 8+ years building web and mobile applications. From Angular interfaces to Flutter apps — clean architecture, intuitive UX, and production-ready code.',
     location: 'Spain',
   },
 

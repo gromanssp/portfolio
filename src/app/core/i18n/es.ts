@@ -18,7 +18,7 @@ export const es: Translations = {
   // ─── PERSONAL / DATA ─────────────
   personal: {
     role: 'Full Stack Developer',
-    bio: 'Ayudo a crear productos digitales modernos combinando desarrollo web y móvil. Construyo aplicaciones rápidas, escalables y con experiencias de usuario cuidadas utilizando tecnologías modernas del ecosistema JavaScript.',
+    bio: 'Ingeniero de telecomunicaciones con más de 8 años construyendo aplicaciones web y móviles. De las interfaces Angular a las aplicaciones Flutter: arquitectura limpia, UX intuitiva y código listo para la producción.',
     location: 'España',
   },
 
