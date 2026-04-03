@@ -121,17 +121,34 @@ import { I18nService } from '@core/i18n';
     <section class="py-24 hex-pattern">
       <div class="max-w-7xl mx-auto px-6">
         <app-section-header title="{{this.i18n.t().home.techTitle}}" subtitle="{{this.i18n.t().home.techSubtitle}}" />
-        <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           @for (tech of data.techStack; track tech.name) {
-            <div class="group flex flex-col items-center gap-3 p-6 rounded-xl bg-surface-800/20 border border-white/3 transition-all hover:bg-surface-800/40 cursor-default"
-                 [class]="tech.hoverBorder">
-              <svg class="w-8 h-8 text-white" [innerHTML]="tech.emoji"></svg>
-              <span class="font-mono text-[10px] text-white/40 group-hover:text-white/70 transition">{{ tech.name }}</span>
+            <div class="group relative flex flex-col items-center gap-4 p-8 rounded-2xl bg-surface-900/40 border border-white/5 transition-all duration-500 hover:scale-105 cursor-default overflow-hidden"
+                 [style.--brand-color]="tech.brandColor">
+              
+              <!-- Glow Background Layer -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" 
+                   [style.background-color]="tech.brandColor"></div>
+              
+              <!-- Floating Icon Container -->
+              <div class="relative z-10 w-16 h-16 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_var(--brand-color)]">
+                <svg class="w-full h-full" viewBox="0 0 24 24" [innerHTML]="tech.emoji"></svg>
+              </div>
+
+              <!-- Name with increased legibility -->
+              <span class="relative z-10 font-mono text-xs font-semibold tracking-wider text-white/40 group-hover:text-white transition-colors duration-300">
+                {{ tech.name }}
+              </span>
+
+              <!-- Animated Bottom Line Indicator -->
+              <div class="absolute bottom-0 left-0 h-1 bg-current transition-all duration-500 w-0 group-hover:w-full opacity-60"
+                   [style.color]="tech.brandColor"></div>
             </div>
           }
         </div>
       </div>
     </section>
+
   `,
 })
 export class HomePage implements OnInit {
