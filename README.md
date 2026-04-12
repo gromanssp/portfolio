@@ -1,162 +1,161 @@
-# Portfolio — Full Stack Developer
+# 🚀 Portfolio — Full Stack Developer
 
-Portfolio personal construido con **Angular 21**, **Tailwind CSS v4** y servido con **Docker + Nginx**.
+<div align="center">
+  <img alt="Angular" src="https://img.shields.io/badge/Angular-21-DD0031?style=for-the-badge&logo=angular&logoColor=white"/>
+  <img alt="TailwindCSS" src="https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+</div>
+
+<br/>
+
+Un portfolio personal moderno, rápido y totalmente responsivo construido con **Angular 21**, **Tailwind CSS v4** y preparado para despliegue con **Docker + Nginx** o **GitHub Pages**. Diseñado con soporte de internacionalización (i18n), lazy loading y componentes standalone.
+
+---
+
+## 📖 Tabla de Contenidos
+
+- [✨ Características](#-características)
+- [🚀 Quick Start](#-quick-start)
+- [🐳 Docker / Contenedores](#-docker--contenedores)
+- [✏️ Personalización](#-personalización)
+- [📁 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🏗️ Arquitectura](#-arquitectura)
+- [🌐 Despliegue](#-despliegue)
+
+---
+
+## ✨ Características
+
+- ⚡ **Framework Moderno**: Angular 21 usando *Standalone Components*, signals y el nuevo _Control Flow_ (`@for`, `@if`).
+- 🎨 **Diseño Atractivo**: Tailwind CSS v4 para estilos optimizados, modo oscuro (Glassmorphism) y animaciones fluidas.
+- 🌍 **Multilenguaje (i18n)**: Soporte completo para múltiples idiomas (`es`, `en`, `it`).
+- 🧩 **Lazy Loading**: Carga perezosa de rutas y componentes para asegurar tiempos de carga súper rápidos.
+- 📱 **100% Responsivo**: Interfaz fluida adaptada a dispositivos móviles, tablets y escritorio.
 
 ---
 
 ## 🚀 Quick Start
 
-### Opción 1: Local (sin Docker)
+### Requisitos Previos
+- **Node.js**: `v20+`
+- **Angular CLI**: `v21+` (`npm install -g @angular/cli`)
 
-```bash
-npm install
-ng serve
-# → http://localhost:4200
-```
+### Instalación y Ejecución Local
 
-### Opción 2: Docker Development (hot-reload)
+1. **Clonar el repositorio y acceder a la carpeta:**
+   ```bash
+   git clone https://github.com/gromanssp/portfolio.git
+   cd portfolio
+   ```
 
-```bash
-docker compose --profile dev up
-# → http://localhost:4200
-```
+2. **Instalar las dependencias:**
+   ```bash
+   npm install
+   ```
 
-### Opción 3: Docker Production (Nginx optimizado)
-
-```bash
-docker compose --profile prod up --build
-# → http://localhost
-```
+3. **Ejecutar el servidor de desarrollo:**
+   ```bash
+   ng serve
+   ```
+   > 🌐 Tu aplicación estará disponible en: [http://localhost:4200](http://localhost:4200)
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🐳 Docker / Contenedores
 
-```
-portfolio/
-├── .docker/
-│   └── nginx/
-│       └── nginx.conf              # Nginx config (SPA fallback, gzip, cache)
-├── src/
-│   ├── app/
-│   │   ├── core/                   # Singleton: services, models
-│   │   │   ├── models/
-│   │   │   │   └── portfolio.models.ts
-│   │   │   └── services/
-│   │   │       └── portfolio-data.service.ts  ← EDITA TUS DATOS AQUÍ
-│   │   │
-│   │   ├── shared/                 # Componentes reutilizables
-│   │   │   └── components/
-│   │   │       ├── navbar/         # Navegación + menú móvil
-│   │   │       ├── footer/         # Footer con social links
-│   │   │       ├── particles-bg/   # Partículas flotantes
-│   │   │       ├── section-header/ # Título + subtítulo de sección
-│   │   │       ├── project-card/   # Tarjeta de proyecto
-│   │   │       ├── skill-bar/      # Barra de progreso animada
-│   │   │       └── terminal-block/ # Bloque decorativo tipo terminal
-│   │   │
-│   │   ├── features/              # Páginas (lazy-loaded)
-│   │   │   ├── home/             # /
-│   │   │   ├── projects/         # /proyectos
-│   │   │   ├── about/            # /sobre-mi
-│   │   │   └── contact/          # /contacto
-│   │   │
-│   │   ├── app.component.ts      # Layout root
-│   │   ├── app.config.ts         # Providers (router, animations)
-│   │   └── app.routes.ts         # Rutas lazy-loaded
-│   │
-│   ├── styles/
-│   │   └── styles.css            # Tailwind v4 @import + @theme + custom CSS
-│   ├── environments/
-│   ├── index.html
-│   └── main.ts
-│
-├── Dockerfile                    # Multi-stage: Node build → Nginx serve
-├── docker-compose.yml            # Dev (hot-reload) + Prod (Nginx)
-├── .dockerignore
-├── angular.json
-├── package.json
-├── tsconfig.json                 # Path aliases: @core/*, @shared/*, @features/*
-├── tsconfig.app.json
-├── postcss.config.js             # @tailwindcss/postcss para v4
-└── README.md
-```
+Si prefieres usar Docker, el proyecto incluye un flujo multi-stage y perfiles de Docker Compose.
+
+| Entorno | Comando | Descripción |
+|---------|---------|-------------|
+| **Desarrollo** | `docker compose --profile dev up` | Servidor con recarga en vivo en el puerto `:4200` |
+| **Producción** | `docker compose --profile prod up --build` | Build de producción optimizado servido por Nginx en el puerto `:80` |
+| **Detener** | `docker compose --profile prod down` | Detiene y elimina los contenedores activos |
+
+> La imagen de producción es extremadamente ligera (**~25MB**), basada en Alpine + Nginx.
 
 ---
 
 ## ✏️ Personalización
 
-Edita **un solo archivo** para cambiar todo el contenido del portfolio:
+El portfolio fue diseñado para que **sólo debas modificar un archivo** para actualizar la información de todo tu perfil.
 
-```
+Abre el siguiente archivo para personalizar tu información:
+```text
 src/app/core/services/portfolio-data.service.ts
 ```
 
-Ahí encontrarás:
-- `name`, `role`, `email`, `bio` — tu info personal
-- `projects` — array de proyectos con tags, links y colores
-- `experience` — timeline de experiencia laboral
-- `skills` — barras de habilidades con porcentajes
-- `techStack` — grid de tecnologías
-- `socials` — links a GitHub, LinkedIn, Twitter
+Dentro encontrarás:
+- `alias`, `name`, y referencias al sistema de idiomas (`i18n`): Tu información personal básica.
+- `stats`: Las estadísticas destacadas en la página inicial.
+- `projectsBase`: Array dinámico de proyectos (tags, iconos, repositorios, colores).
+- `techStack`: El stack tecnológico con colores de marca configurados.
+- `experience`, `skills` y `socials`: Tu historial, habilidades y enlaces.
+
+> **Importante:** Recuerda también editar los textos base en los diccionarios bajo `src/app/core/i18n/` para asegurar que tu historia se cuenta correctamente en cada idioma.
+
+---
+
+## 📁 Estructura del Proyecto
+
+El proyecto sigue una arquitectura limpia orientada a componentes.
+
+```text
+portfolio/
+├── .docker/                  # Configuración de Nginx para contenedores
+├── src/
+│   ├── app/
+│   │   ├── core/             # Servicios Singleton, modelos, traducciones i18n
+│   │   ├── shared/           # Componentes reutilizables UI (Headers, Cards, Navbar)
+│   │   ├── features/         # Vistas Lazy-loaded (Home, Projects, About, Contact)
+│   │   ├── app.component.ts  # Componente base
+│   │   ├── app.config.ts     # Configuración Global (Router, Animations)
+│   │   └── app.routes.ts     # Definición de rutas principales
+│   │
+│   └── styles/
+│       └── styles.css        # Configuración global Tailwind @theme
+├── Dockerfile                # Multi-stage para desarrollo/producción
+├── docker-compose.yml        # Configuración orquestación Docker
+└── postcss.config.js         # Configuración del motor CSS (@tailwindcss/postcss)
+```
 
 ---
 
 ## 🏗️ Arquitectura Angular 21
 
-| Característica | Implementación |
-|---|---|
-| Standalone Components | Sin NgModules, todo standalone |
-| Signals | `signal()`, `input()`, `output()` |
-| New Control Flow | `@for`, `@if`, `@switch` |
-| Lazy Loading | `loadComponent()` en todas las rutas |
-| OnPush | En todos los componentes |
-| Path Aliases | `@core/*`, `@shared/*`, `@features/*` |
-| View Transitions | API nativa integrada en router |
+Aprovechando lo último del core de Angular:
+
+- **Standalone Components**: 100% de la arquitectura sin `NgModules`.
+- **Rendimiento OnPush**: Mejor optimización por la detección de cambios implementada en todos los componentes.
+- **Signals API**: Flujo de información y reactividad moderna empleando `signal()`, `computed()` y `input()`.
+- **View Transitions**: API nativa ligada al enrutador de forma moderna para transiciones de vista.
+- **Tailwind CSS v4 API**: Usando variables inyectadas (`@theme`) sin archivo `tailwind.config.js` externo.
 
 ---
 
-## 🎨 Tailwind CSS v4
+## 🌐 Despliegue en GitHub Pages
 
-El CSS usa la nueva sintaxis de Tailwind v4:
+Este proyecto soporta alojamiento gratuito automatizado a través de GitHub Pages con Angular CLI.
 
-```css
-@import "tailwindcss";          /* En lugar de @tailwind base/components/utilities */
+1. Añade soporte para GitHub Pages a tu proyecto:
+   ```bash
+   ng add angular-cli-ghpages
+   ```
 
-@theme {
-  --color-accent-500: #14b8a6;  /* Tokens custom via CSS variables */
-  --font-display: "Syne";
-}
-```
+2. Compila el proyecto definiendo la URL base:
+   ```bash
+   ng build --base-href=/portfolio/
+   ```
 
-Se procesa via `@tailwindcss/postcss` (configurado en `postcss.config.js`).
+3. Sube la rama compilada para el despliegue automático:
+   ```bash
+   npx angular-cli-ghpages --dir=dist/portfolio/browser
+   ```
 
----
-
-## 🐳 Docker
-
-| Comando | Descripción |
-|---|---|
-| `docker compose --profile dev up` | Dev server con hot-reload en :4200 |
-| `docker compose --profile prod up --build` | Build prod + Nginx en :80 |
-| `docker compose --profile prod down` | Detener producción |
-
-La imagen de producción pesa **~25MB** (Alpine + Nginx + Angular build).
+>  💡 **Sugerencia:** Si cambias el nombre de tu repositorio de `portfolio` a otro nombre, asegúrate de actualizar el string `--base-href=/tu-nombre-de-repo/`.
 
 ---
 
-## 📋 Requisitos
-
-- **Node.js** ≥ 20
-- **Angular CLI** ≥ 21 (`npm i -g @angular/cli`)
-- **Docker** ≥ 24 (opcional, para contenedores)
-
----
-
-## Publicacion
-
-- ** Se instala el siguiente paquete para el desplege ng add angular-cli-ghpages
-- ** Para cambiar el despliegue en remoto ng build --base-href=/portfolio/
-- ** para desplegar npx angular-cli-ghpages --dir=dist/portfolio/browser
-
-
+<div align="center">
+  Hecho con pasión usando Angular y Node.js ❤️
+</div>
