@@ -157,5 +157,5 @@ Este proyecto soporta alojamiento gratuito automatizado a través de GitHub Page
 ---
 
 <div align="center">
-  Hecho con pasión usando Angular y Node.js ❤️
+  Hecho con pasión usando Angular y Tailwind CSS ❤️
 </div>
