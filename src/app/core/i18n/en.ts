@@ -10,12 +10,13 @@ export const en: Translations = {
 
   hero: {
     greeting: "Hi, I'm",
+    publicity: 'Is your website slow, outdated, or not converting as it should? Every second counts: performance, design, and user experience directly impact your results. I help you optimize your site to make it faster, more attractive, and more effective. If your website isn\'t keeping up with your business, let\'s talk.',
     viewProjects: 'View Projects',
   },
 
   personal: {
     role: 'Full Stack Developer',
-    bio: 'Telecommunications engineer with 8+ years building web and mobile applications. From Angular interfaces to Flutter apps — clean architecture, intuitive UX, and production-ready code.',
+    bio: 'Engineer with 8+ years building web and mobile applications. From Angular interfaces to Flutter apps — clean architecture, intuitive UX, and production-ready code.',
     location: 'Spain',
   },
 
@@ -48,7 +49,8 @@ export const en: Translations = {
     'vitrina-store': 'Complete e-commerce platform with administration panel, integrated payments and real-time analytics, article management system for users and clients.',
     'ionic-ui': 'Mobile application to reutilize Ionic components.',
     'password-generator': 'Platform to generate secure passwords automatically with a single click.',
-    'groman-2' : 'Modern Angular 21 Dashboard Template A premium dark glassmorphism admin panel with 10+ reusable components, 12 color themes, and a complete component showcase.'
+    'groman-2' : 'Modern Angular 21 Dashboard Template A premium dark glassmorphism admin panel with 10+ reusable components, 12 color themes, and a complete component showcase.',
+    'agent-ia': 'Interactive natural language chat designed for VPS server management, enabling users to administer, configure, and monitor their environments through intuitive and efficient conversations in Spanish.'
   },
 
   aboutPage: {
@@ -91,8 +93,8 @@ export const en: Translations = {
   ],
 
   skills: [
-    'Frontend (Angular, Flutter)',
-    'Backend (Node.js, NestJS)',
+    'Frontend (Angular, Flutter, Ionic)',
+    'Backend (Node.js, NestJS, N8N)',
     'Database (SQL, NoSQL)',
     'DevOps (Linux, Docker)',
     'UI/UX',

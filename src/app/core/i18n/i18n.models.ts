@@ -16,6 +16,7 @@ export interface Translations {
 
   hero: {
     greeting: string;
+    publicity: string;
     viewProjects: string;
   };
 

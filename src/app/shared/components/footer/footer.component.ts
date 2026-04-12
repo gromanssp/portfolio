@@ -24,6 +24,7 @@ import { PortfolioDataService } from '@core/services/portfolio-data.service';
               <a routerLink="/" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.home}}</a>
               <a routerLink="/proyectos" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.projects}}</a>
               <a routerLink="/sobre-mi" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.about}}</a>
+              <a routerLink="/contacto" class="block text-white/30 text-xs hover:text-accent-400 transition">{{this.i18n.t().nav.contact}}</a>
             </div>
           </div>
           <div>

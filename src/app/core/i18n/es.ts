@@ -12,13 +12,14 @@ export const es: Translations = {
   // ─── HERO ────────────────────────
   hero: {
     greeting: 'Hola, soy',
+    publicity: '¿Tu web es lenta, se ve desactualizada o no convierte como debería? Cada segundo cuenta: el rendimiento, el diseño y la experiencia de usuario impactan directamente en tus resultados. Te ayudo a optimizar tu sitio para que sea más rápido, atractivo y eficaz. Si tu web no está a la altura de tu negocio, hablemos.',
     viewProjects: 'Ver Proyectos',
   },
 
   // ─── PERSONAL / DATA ─────────────
   personal: {
     role: 'Full Stack Developer',
-    bio: 'Ingeniero de telecomunicaciones con más de 8 años construyendo aplicaciones web y móviles. De las interfaces Angular a las aplicaciones Flutter: arquitectura limpia, UX intuitiva y código listo para la producción.',
+    bio: 'Ingeniero con más de 8 años construyendo aplicaciones web y móviles. De las interfaces Angular a las aplicaciones Flutter: arquitectura limpia, UX intuitiva y código listo para la producción.',
     location: 'España',
   },
 
@@ -55,7 +56,8 @@ export const es: Translations = {
     'vitrina-store': 'Plataforma de comercio electrónico completa con panel de administración, pagos integrados y analíticas en tiempo real, sistema de gestion de articulos para usuarios y clientes.',
     'ionic-ui': 'Aplicación móvil sencilla para reutilizar componentes de Ionic.',
     'password-generator': 'Plataforma para generar passwords seguros automaticos con un solo click.',
-    'groman-2' : 'Modern Angular 21 Dashboard Template Un panel de administración premium de cristal oscuro con más de 10 componentes reutilizables, 12 temas de color y una presentación completa de componentes.'
+    'groman-2' : 'Modern Angular 21 Dashboard Template Un panel de administración premium de cristal oscuro con más de 10 componentes reutilizables, 12 temas de color y una presentación completa de componentes.',
+    'agent-ia': 'Chat interactivo en lenguaje natural diseñado para la administración de servidores VPS, permitiendo a los usuarios administrar, configurar y monitorear sus entornos a través de conversaciones intuitivas y eficientes en español.'
   },
 
   // ─── ABOUT PAGE ──────────────────
@@ -101,9 +103,9 @@ export const es: Translations = {
 
   // ─── SKILLS ──────────────────────
   skills: [
-    'Frontend (Angular, Flutter)',
-    'Backend (Node.js, NestJS)',
-    'Bases de Datos (SQL, NoSQL)',
+    'Frontend (Angular, Flutter, Ionic)',
+    'Backend (Node.js, NestJS, N8N)',
+    'Database (SQL, NoSQL)',
     'DevOps (Linux, Docker)',
     'UI/UX',
   ],

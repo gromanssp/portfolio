@@ -7,9 +7,12 @@ import { ProjectPreviewComponent } from '@shared/components/project-preview/proj
   standalone: true,
   imports: [ProjectPreviewComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'block h-full'
+  },
   template: `
-    <div class="card-hover p-8 md:p-10 rounded-3xl bg-surface-800/40 border border-white/5 group">
-      <div class="relative z-10">
+    <div class="card-hover p-8 md:p-10 rounded-3xl bg-surface-800/40 border border-white/5 group h-full flex flex-col">
+      <div class="relative z-10 flex flex-col h-full">
 
         <!-- Preview thumbnail -->
         @if (project().previewImage) {
@@ -40,7 +43,7 @@ import { ProjectPreviewComponent } from '@shared/components/project-preview/proj
         }
 
         <h3 class="font-display font-bold text-xl md:text-2xl text-white mb-3">{{ project().title }}</h3>
-        <p class="text-white/40 text-sm leading-relaxed mb-6">{{ project().description }}</p>
+        <p class="text-white/40 text-sm leading-relaxed mb-6 flex-grow">{{ project().description }}</p>
 
         <div class="flex flex-wrap gap-2 mb-6">
           @for (tag of project().tags; track tag) {

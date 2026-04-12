@@ -10,12 +10,13 @@ export const it: Translations = {
 
   hero: {
     greeting: 'Ciao, sono',
+    publicity: "Il tuo sito è lento, ha un design obsoleto o non converte come dovrebbe? Ogni secondo conta: prestazioni, design ed esperienza utente influenzano direttamente i tuoi risultati. Ti aiuto a ottimizzare il tuo sito per renderlo più veloce, efficace e attraente. Se il tuo sito non è all’altezza del tuo business, parliamone.",
     viewProjects: 'Vedi Progetti',
   },
 
   personal: {
     role: 'Full Stack Developer',
-    bio: 'Ingegnere delle telecomunicazioni con 8+ anni di esperienza nello sviluppo di applicazioni web e mobili. Dalle interfacce Angular alle app Flutter con architettura pulita, UX intuitiva e codice pronto per la produzione.',
+    bio: 'Ingegnere con 8+ anni di esperienza nello sviluppo di applicazioni web e mobili. Dalle interfacce Angular alle app Flutter con architettura pulita, UX intuitiva e codice pronto per la produzione.',
     location: 'Spagna',
   },
 
@@ -48,7 +49,8 @@ export const it: Translations = {
     'vitrina-store': 'Piattaforma di e-commerce completa con pannello di amministrazione, pagamenti integrati e analisi in tempo reale, sistema di gestione degli articoli per utenti e clienti.',
     'ionic-ui': 'Applicazione mobile per reutilizzare componenti di Ionic.',
     'password-generator': 'Piattaforma per generare password sicure automaticamente con un solo clic.',
-    'groman-2' : 'Modello di dashboard Angular 21 moderno Un pannello di amministrazione premium in vetromorfismo scuro con 10+ componenti riutilizzabili, 12 temi di colore e una vetrina completa dei componenti.'
+    'groman-2' : 'Modello di dashboard Angular 21 moderno Un pannello di amministrazione premium in vetromorfismo scuro con 10+ componenti riutilizzabili, 12 temi di colore e una vetrina completa dei componenti.',
+    'agent-ia': 'Chat interattivo in linguaggio naturale progettato per la gestione di server VPS, consentendo agli utenti di amministrare, configurare e monitorare i propri ambienti attraverso conversazioni intuitive ed efficienti in spagnolo.'
   },
 
   aboutPage: {
@@ -91,8 +93,8 @@ export const it: Translations = {
   ],
 
   skills: [
-    'Frontend (Angular, Flutter)',
-    'Backend (Node.js, NestJS)',
+    'Frontend (Angular, Flutter, Ionic)',
+    'Backend (Node.js, NestJS, N8N)',
     'Database (SQL, NoSQL)',
     'DevOps (Linux, Docker)',
     'UI/UX',

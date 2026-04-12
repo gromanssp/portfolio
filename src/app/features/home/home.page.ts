@@ -21,7 +21,7 @@ import { I18nService } from '@core/i18n';
       <div class="absolute top-20 right-20 w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] animate-morph"></div>
       <div class="absolute bottom-20 left-10 w-80 h-80 bg-cyan-500/5 rounded-full blur-[100px] animate-morph" style="animation-delay:-4s"></div>
 
-      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5 items-center relative z-10">
         <div>
           <div class="slide-up flex items-center gap-3 mb-6">
             <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
@@ -30,12 +30,15 @@ import { I18nService } from '@core/i18n';
 
           <h1 class="slide-up-d1 font-display font-bold text-5xl lg:text-7xl leading-tight tracking-tighter mb-6">
             <span class="text-white">{{this.i18n.t().hero.greeting}}</span><br>
-            <span class="bg-linear-to-r from-accent-400 via-cyan-300 to-accent-400 bg-clip-text text-transparent animate-gradient">
-              {{ data.name }}
+            <span class="inline-flex items-center">
+              <span class="bg-linear-to-r from-accent-400 via-cyan-300 to-accent-400 bg-clip-text text-transparent animate-gradient min-h-[1.2em]">
+                {{ displayedAlias() }}
+              </span>
+              <!-- <span class="w-[4px] h-[0.9em] bg-accent-400 ml-1 animate-pulse" style="animation-duration: 0.8s;"></span> -->
             </span>
           </h1>
 
-          <p class="slide-up-d2 text-lg text-white/50 max-w-lg mb-10 font-light leading-relaxed">{{ data.bio() }}</p>
+          <p class="slide-up-d2 text-lg text-white/50 max-w-lg mb-10 font-light leading-relaxed">{{ data.publicity() }}</p>
 
           <div class="slide-up-d3 flex flex-wrap gap-4">
             <a routerLink="/proyectos"
@@ -156,8 +159,23 @@ export class HomePage implements OnInit {
   readonly i18n = inject(I18nService);
   heroTags = ['Angular', 'TypeScript', 'Node.js', 'Docker', 'Flutter'];
   counters = signal<number[]>([0, 0, 0, 0]);
+  displayedAlias = signal<string>('');
 
   ngOnInit(): void {
+    const aliasText = this.data.alias;
+    let aliasIndex = 0;
+    
+    setTimeout(() => {
+      const typeInterval = setInterval(() => {
+        if (aliasIndex <= aliasText.length) {
+          this.displayedAlias.set(aliasText.substring(0, aliasIndex));
+          aliasIndex++;
+        } else {
+          clearInterval(typeInterval);
+        } 
+      }, 150);
+    }, 600);
+
     const targets = this.data.stats().map((s) => s.value);
     const cur = [0, 0, 0, 0];
     const inc = targets.map((t) => t / 50);
