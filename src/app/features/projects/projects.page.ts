@@ -11,11 +11,11 @@ import { ProjectCardComponent } from '@shared/components/project-card/project-ca
   template: `
     <!-- Header -->
     <section class="pt-32 pb-16 relative">
-      <div class="absolute top-20 left-20 w-72 h-72 bg-accent-500/5 rounded-full blur-[100px]"></div>
+      <div class="absolute top-20 left-20 w-72 h-72 bg-cool-500/5 rounded-full blur-[100px]"></div>
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
-          <span class="font-mono text-xs text-accent-400 tracking-[0.3em] uppercase">{{this.i18n.t().projectsPage.subtitle}}</span>
+          <div class="h-px w-12 bg-linear-to-r from-cool-500 to-transparent"></div>
+          <span class="font-mono text-xs text-cool-400 tracking-[0.3em] uppercase">{{this.i18n.t().projectsPage.subtitle}}</span>
         </div>
         <h1 class="font-display font-bold text-4xl md:text-6xl text-white mb-6 leading-tight tracking-tighter">
           {{this.i18n.t().projectsPage.title}} <span class="text-accent-400 glow-text">{{this.i18n.t().projectsPage.titleHighlight}}</span>

@@ -18,20 +18,20 @@ import { I18nService } from '@core/i18n';
         <div class="orbit-ring absolute inset-15"></div>
         <div class="orbit-ring absolute inset-30"></div>
       </div>
-      <div class="absolute top-20 right-20 w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] animate-morph"></div>
-      <div class="absolute bottom-20 left-10 w-80 h-80 bg-cyan-500/5 rounded-full blur-[100px] animate-morph" style="animation-delay:-4s"></div>
+      <div class="absolute top-20 right-20 w-96 h-96 bg-cool-500/8 rounded-full blur-[120px] animate-morph"></div>
+      <div class="absolute bottom-20 left-10 w-80 h-80 bg-accent-500/5 rounded-full blur-[100px] animate-morph" style="animation-delay:-4s"></div>
 
       <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-5 items-center relative z-10">
         <div>
           <div class="slide-up flex items-center gap-3 mb-6">
-            <div class="h-px w-12 bg-linear-to-r from-accent-500 to-transparent"></div>
-            <span class="font-mono text-xs text-accent-400 tracking-[0.15em] uppercase">{{ data.role() }}</span>
+            <div class="h-px w-12 bg-linear-to-r from-cool-500 to-transparent"></div>
+            <span class="font-mono text-xs text-cool-400 tracking-[0.15em] uppercase">{{ data.role() }}</span>
           </div>
 
           <h1 class="slide-up-d1 font-display font-bold text-5xl lg:text-7xl leading-tight tracking-tighter mb-6">
             <span class="text-white">{{this.i18n.t().hero.greeting}}</span><br>
             <span class="inline-flex items-center">
-              <span class="bg-linear-to-r from-accent-400 via-cyan-300 to-accent-400 bg-clip-text text-transparent animate-gradient min-h-[1.2em]">
+              <span class="bg-linear-to-r from-accent-400 via-accent-200 to-cool-400 bg-clip-text text-transparent animate-gradient min-h-[1.2em]">
                 {{ displayedAlias() }}
               </span>
               <!-- <span class="w-[4px] h-[0.9em] bg-accent-400 ml-1 animate-pulse" style="animation-duration: 0.8s;"></span> -->
@@ -42,7 +42,7 @@ import { I18nService } from '@core/i18n';
 
           <div class="slide-up-d3 flex flex-wrap gap-4">
             <a routerLink="/proyectos"
-               class="btn-cyber bg-linear-to-r from-accent-500 to-cyan-500 text-surface-950 px-8 py-3.5 rounded-xl font-semibold text-sm tracking-wide">
+               class="btn-cyber bg-linear-to-r from-accent-500 to-accent-400 text-surface-950 px-8 py-3.5 rounded-xl font-semibold text-sm tracking-wide">
               {{this.i18n.t().hero.viewProjects}}
             </a>
           </div>
@@ -60,17 +60,17 @@ import { I18nService } from '@core/i18n';
         <div class="slide-up-d3 relative hidden lg:block">
           <div class="relative w-full aspect-square max-w-md mx-auto">
             <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-48 h-48 rounded-full bg-linear-to-br from-accent-500/20 to-cyan-500/10 animate-morph flex items-center justify-center">
-                <div class="w-32 h-32 rounded-full bg-linear-to-br from-accent-500/30 to-cyan-500/20 flex items-center justify-center animate-pulse-glow">
-                  <div class="w-16 h-16 rounded-full bg-accent-500/50 blur-sm"></div>
+              <div class="w-48 h-48 rounded-full bg-linear-to-br from-cool-500/20 to-accent-500/10 animate-morph flex items-center justify-center">
+                <div class="w-32 h-32 rounded-full bg-linear-to-br from-cool-500/30 to-accent-500/20 flex items-center justify-center animate-pulse-glow">
+                  <div class="w-16 h-16 rounded-full bg-cool-500/50 blur-sm"></div>
                 </div>
               </div>
             </div>
             <div class="absolute top-8 right-4 bg-surface-800/80 backdrop-blur border border-white/5 rounded-lg p-3 animate-float" style="animation-delay:-2s">
-              <code class="font-mono text-[10px] text-accent-400">ng serve --open<br>✓ Compiled successfully</code>
+              <code class="font-mono text-[10px] text-cool-400">ng serve --open<br>✓ Compiled successfully</code>
             </div>
             <div class="absolute bottom-16 left-0 bg-surface-800/80 backdrop-blur border border-white/5 rounded-lg p-3 animate-float" style="animation-delay:-5s">
-              <code class="font-mono text-[10px] text-cyan-400">git push origin main<br>→ Deploy ✓</code>
+              <code class="font-mono text-[10px] text-accent-400">git push origin main<br>→ Deploy ✓</code>
             </div>
             <div class="absolute top-1/2 right-0 bg-surface-800/80 backdrop-blur border border-white/5 rounded-lg p-3 animate-float" style="animation-delay:-3s">
               <code class="font-mono text-[10px] text-neon-green">✓ All tests passed</code>
@@ -80,8 +80,8 @@ import { I18nService } from '@core/i18n';
       </div>
 
       <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 animate-float">
-        <span class="font-mono text-[10px] text-accent-400 tracking-[0.1em]">SCROLL</span>
-        <div class="w-px h-8 bg-linear-to-b from-accent-400 to-transparent"></div>
+        <span class="font-mono text-[10px] text-cool-400 tracking-widest">SCROLL</span>
+        <div class="w-px h-8 bg-linear-to-b from-cool-400 to-transparent"></div>
       </div>
     </section>
 
@@ -94,7 +94,7 @@ import { I18nService } from '@core/i18n';
               <div class="font-display font-bold text-4xl md:text-5xl text-white mb-2 tracking-tight">
                 {{ counters()[i] }}{{ stat.suffix ?? '' }}
               </div>
-              <div class="font-mono text-[10px] text-accent-400 tracking-[0.1em] uppercase">{{ stat.label }}</div>
+              <div class="font-mono text-[10px] text-cool-400 tracking-widest uppercase">{{ stat.label }}</div>
             </div>
           }
         </div>
@@ -112,7 +112,7 @@ import { I18nService } from '@core/i18n';
         </div>
         <div class="text-center mt-12">
           <a routerLink="/proyectos"
-             class="btn-cyber border border-accent-500/30 text-accent-400 px-8 py-3 rounded-xl font-medium text-sm inline-flex items-center gap-2">
+             class="btn-cyber-secondary border border-cool-500/30 text-cool-400 px-8 py-3 rounded-xl font-medium text-sm inline-flex items-center gap-2 hover:border-cool-500/50">
             {{this.i18n.t().home.viewAll}}
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>

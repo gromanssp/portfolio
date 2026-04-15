@@ -35,7 +35,7 @@ import { ProjectPreviewComponent } from '@shared/components/project-preview/proj
             </div>
           </div>
         } @else if (project().icon !== '') {
-          <div class="w-14 h-14 rounded-xl bg-teal-500/10 flex items-center justify-center mb-6 group-hover:bg-teal-500/20 transition">
+          <div class="w-14 h-14 rounded-xl bg-cool-500/10 flex items-center justify-center mb-6 group-hover:bg-cool-500/20 transition">
             <svg [class]="project().colorClasses.text" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path [attr.d]="project().icon"></path>
             </svg>
@@ -57,7 +57,7 @@ import { ProjectPreviewComponent } from '@shared/components/project-preview/proj
         <div class="flex gap-4">
           @for (link of project().links; track link.label) {
             <a [href]="link.url" target="_blank" rel="noopener noreferrer"
-               class="font-mono text-xs text-accent-400/70 hover:text-accent-400 transition flex items-center gap-1.5">
+               class="font-mono text-xs text-cool-400/70 hover:text-cool-400 transition flex items-center gap-1.5">
               @if (link.label === 'GitHub') {
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M9 19c-5 1.5-5-2.5-7-3h0m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" fill="none" stroke-width="1.5"/>

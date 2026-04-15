@@ -11,7 +11,7 @@ import { ParticlesBgComponent } from '@shared/components/particles-bg/particles-
   template: `
     <app-particles-bg />
     <div class="fixed inset-0 pointer-events-none z-50 overflow-hidden opacity-[0.02]">
-      <div class="w-full h-0.5 bg-accent-400" style="animation: scan-line 8s linear infinite"></div>
+      <div class="w-full h-0.5 bg-cool-400" style="animation: scan-line 8s linear infinite"></div>
     </div>
     <app-navbar />
     <main><router-outlet /></main>

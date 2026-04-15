@@ -92,7 +92,7 @@ export class PortfolioDataService {
       title: 'La Vitrina',
       tags: ['Angular', 'NestJS', 'PostgreSQL', 'Stripe', 'Docker'],
       color: 'teal',
-      colorClasses: { bg: 'bg-accent-500/10', text: 'text-accent-400/70', border: 'border-accent-500/10' },
+      colorClasses: { bg: 'bg-cool-500/10', text: 'text-cool-400/70', border: 'border-cool-500/10' },
       links: [],
       featured: false,
       icon: ''

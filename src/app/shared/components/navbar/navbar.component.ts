@@ -8,7 +8,7 @@ import { LangSwitcherComponent } from '../lang-switcher/lang-switcher.component'
   standalone: true,
   imports: [RouterLink, RouterLinkActive, LangSwitcherComponent],
   template: `
-    <nav class="fixed top-0 w-full z-40 backdrop-blur-xl bg-surface-950/70 border-b border-white/4">
+    <nav class="fixed top-0 w-full z-40 backdrop-blur-xl bg-surface-950/80 border-b border-cool-500/8">
       <div class="max-w-7xl mx-auto p-8 px-6 py-4 flex items-center justify-between">
 
         <a routerLink="/" class="flex items-center gap-3 group">
@@ -24,7 +24,7 @@ import { LangSwitcherComponent } from '../lang-switcher/lang-switcher.component'
             <a [routerLink]="link.path"
                routerLinkActive="active"
                [routerLinkActiveOptions]="{ exact: link.exact }"
-               class="nav-link font-body text-sm tracking-wide font-medium text-white/60">
+               class="nav-link font-body text-sm tracking-wide font-medium text-white/50">
               {{ link.label }}
             </a>
           }
@@ -47,13 +47,13 @@ import { LangSwitcherComponent } from '../lang-switcher/lang-switcher.component'
       </div>
 
       @if (menuOpen()) {
-        <div class="md:hidden fixed bg-surface-900/95 backdrop-blur-2xl border-b border-white/5 p-8 top-0 right-0 w-52"
+        <div class="md:hidden fixed bg-surface-800/98 backdrop-blur-2xl border-b border-cool-500/10 p-8 top-0 right-0 w-52"
              style="animation: fade-in 0.3s ease forwards">
           <div class="flex flex-col gap-6">
             @for (link of navLinks; track link.path) {
               <a [routerLink]="link.path"
                  (click)="menuOpen.set(false)"
-                 class="text-lg font-display font-medium text-white/70 hover:text-accent-400 transition">
+                 class="text-lg font-display font-medium text-white/70 hover:text-cool-400 transition">
                 {{ link.label }}
               </a>
             }
