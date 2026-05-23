@@ -51,8 +51,8 @@ Construido con **Angular 21 standalone**, diseño **glassmorphism neon-green**, 
 ### Instalación
 
 ```bash
-git clone https://github.com/gromanssp/portafolio.git
-cd portafolio
+git clone https://github.com/gromanssp/gromanssp.github.io.git
+cd gromanssp.github.io
 npm install --legacy-peer-deps
 ```
 
@@ -109,16 +109,15 @@ El proyecto se despliega en **GitHub Pages** mediante **GitHub Actions**.
 ### Manual (alternativa)
 
 ```bash
-ng build --base-href /portafolio/
-npx angular-cli-ghpages --dir=dist/portafolio
+npm run build:prod
 ```
 
 ---
 
 ## Enlaces
 
-- **Sitio en vivo:** [gromanssp.github.io/portafolio](https://gromanssp.github.io/portafolio/)
-- **Repositorio:** [github.com/gromanssp/portafolio](https://github.com/gromanssp/portafolio)
+- **Sitio en vivo:** [gromanssp.github.io](https://gromanssp.github.io)
+- **Repositorio:** [github.com/gromanssp/gromanssp.github.io](https://github.com/gromanssp/gromanssp.github.io)
 - **LinkedIn:** [linkedin.com/in/jorge-gonzález-román](https://www.linkedin.com/in/jorge-gonz%C3%A1lez-rom%C3%A1n-650227123)
 
 ---
