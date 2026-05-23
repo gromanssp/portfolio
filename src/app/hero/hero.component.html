@@ -1,1 +1,77 @@
-<p>hero works!</p>
+<section id="inicio" class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-info">
+      <div class="hero-tagline">
+        <span class="tagline-bar"></span>
+        <span class="tagline-text">{{ i18n.t().hero.role }}</span>
+      </div>
+
+      <h1 class="hero-title">
+        {{ i18n.t().hero.greeting }} <span class="neon-highlight">{{ alias }}</span>
+      </h1>
+      
+      <p class="hero-description">
+        {{ i18n.t().hero.publicity }}
+      </p>
+
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn-neon-primary">
+          <i class="fa-solid fa-code"></i> {{ i18n.t().hero.viewProjects }}
+        </a>
+        <a href="#contacto" class="btn-neon-secondary">
+          {{ i18n.t().hero.connect }}
+        </a>
+      </div>
+
+      <div class="hero-tags">
+        @for (tag of heroTags; track tag) {
+          <span class="tech-tag">{{ tag }}</span>
+        }
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <!-- Terminal flotante izquierdo -->
+      <div class="floating-terminal glass-card float-1">
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">bash - git</span>
+        </div>
+        <div class="terminal-body">
+          <p class="command"><span class="prompt">$</span> git push origin main</p>
+          <p class="output">Enumerating objects: 21, done.</p>
+          <p class="output text-muted">Counting objects: 100% (21/21), done.</p>
+          <p class="output text-neon">Delta compression using up to 8 threads</p>
+          <p class="output text-neon">To github.com/gromanssp/portafolio.git</p>
+          <p class="output text-success">> [new branch] main -> main</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta Node flotante derecha -->
+      <div class="floating-node-card glass-card float-2">
+        <div class="node-badge">
+          <i class="fa-brands fa-node-js text-node"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="card-pulse"></div>
+      </div>
+
+      <!-- Editor de código flotante de fondo -->
+      <div class="floating-editor glass-card float-3">
+        <div class="editor-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="editor-title">developer.ts</span>
+        </div>
+        <div class="editor-body">
+          <pre><code><span class="keyword">const</span> <span class="variable">dev</span> = &#123;
+  name: <span class="string">'Jorge'</span>,
+  skills: [<span class="string">'Angular'</span>, <span class="string">'Node'</span>],
+  status: <span class="string">'Optimizing'</span>
+&#125;;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

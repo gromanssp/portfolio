@@ -1,0 +1,66 @@
+<section id="sobre" class="about-section">
+  <!-- Biografía Principal -->
+  <div class="bio-container glass-card">
+    <div class="bio-content">
+      <h2 class="bio-title">{{ i18n.t().about.title }}</h2>
+      <p class="bio-text">{{ i18n.t().about.bio }}</p>
+    </div>
+    
+    <div class="bio-avatar-wrapper">
+      <div class="avatar-glow-ring ring-1"></div>
+      <div class="avatar-glow-ring ring-2"></div>
+      <div class="avatar-image">
+        <img src="https://avatars.githubusercontent.com/u/62961675?v=4" alt="Jorge González Román" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Trayectoria / Experiencia -->
+  <div class="experience-section">
+    <h3 class="subsection-title">{{ i18n.t().about.expTitle }}</h3>
+    
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-track">
+        @for (item of experience(); track item.company; let i = $index) {
+          <div class="timeline-card glass-card" [class.card-right]="i % 2 === 0" [class.card-left]="i % 2 === 1">
+            <span class="timeline-dot"></span>
+            <div class="timeline-card-header">
+              <span class="timeline-company">{{ item.company }}</span>
+              <span class="timeline-period">{{ item.period }}</span>
+            </div>
+            <h4 class="timeline-role">{{ item.role }}</h4>
+            <p class="timeline-desc">{{ item.description }}</p>
+            <div class="timeline-tags">
+                @for (tag of item.tags; track tag) {
+                <span class="timeline-tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Habilidades / Burbujas Tecnológicas -->
+  <div class="skills-section">
+    <h3 class="subsection-title">{{ i18n.t().about.skillsTitle }}</h3>
+    
+    <div class="bubbles-container glass-card">
+      @for (bubble of skills(); track bubble.name) {
+        <div 
+          class="skill-bubble glass-card {{ bubble.size }} {{ bubble.anim }}"
+          [style.top]="bubble.top"
+          [style.left]="bubble.left"
+          [style.--bubble-color]="bubble.color"
+        >
+          <div class="bubble-icon">
+            <i class="{{ bubble.icon }}"></i>
+          </div>
+          <span class="bubble-label">{{ bubble.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

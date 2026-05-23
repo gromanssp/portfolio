@@ -1,0 +1,111 @@
+<section id="proyectos" class="projects-section">
+  <h2 class="section-title">{{ i18n.t().projects.title }}</h2>
+
+  <div class="projects-grid">
+    @for (project of projects(); track project.id) {
+      <div class="project-card glass-card" [style.--project-color]="project.colorHex" [style.--project-rgb]="project.colorRgb">
+        <!-- Thumbnail preview con overlay -->
+        <div class="project-thumb" (click)="openPreview(project)" [style.--thumb-color]="project.colorHex">
+          <div class="project-thumb-bg" [style.background]="thumbGradient(project)">
+            @if (thumbScreenshot(project); as src) {
+              <img [src]="src" alt="" class="project-thumb-img" loading="lazy" crossorigin="anonymous">
+            }
+            <div class="project-thumb-grid"></div>
+            <div class="project-thumb-glow" [style.background]="'radial-gradient(circle, ' + project.colorHex + '44 0%, transparent 70%)'"></div>
+            @if (useSvgIcon(project)) {
+              <svg class="project-thumb-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path [attr.d]="project.icon"/>
+              </svg>
+            } @else if (!hasDemo(project)) {
+              <i class="{{ techIcon(project) }} project-thumb-icon"></i>
+            }
+          </div>
+          <div class="project-thumb-overlay">
+            <div class="project-thumb-eye">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="eye-icon">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <span class="preview-label">{{ i18n.t().projects.preview }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <h3 class="project-card-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          
+          <div class="project-tags">
+            @for (tag of project.tags; track tag) {
+              <span class="project-tag" [style.--tag-color]="project.colorHex">{{ tag }}</span>
+            }
+          </div>
+
+          <div class="project-actions">
+            @for (link of project.links; track link.label) {
+              <a class="project-action-link" [href]="link.url" target="_blank" rel="noopener noreferrer">
+                @if (link.label === 'GitHub') {
+                  <i class="fa-brands fa-github"></i>
+                } @else if (link.label === 'PlayStore') {
+                  <i class="fa-brands fa-google-play"></i>
+                } @else {
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                }
+                {{ link.label }}
+              </a>
+            }
+            @if (project.links.length === 0) {
+              <span class="project-no-links">{{ i18n.t().projects.comingSoon }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Preview Modal -->
+@if (showPreview(); as project) {
+  <div class="preview-overlay" [class.active]="showPreview()" (click)="closePreview()">
+    <div class="preview-browser-frame" (click)="$event.stopPropagation()">
+      <div class="preview-browser-bar">
+        <div class="preview-browser-dots">
+          <span class="preview-dot red"></span>
+          <span class="preview-dot yellow"></span>
+          <span class="preview-dot green"></span>
+        </div>
+        <div class="preview-browser-url">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lock-icon">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="m7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span class="url-text">{{ project.title }} — {{ i18n.t().projects.demoPreview }}</span>
+        </div>
+        <button class="preview-close-btn" (click)="closePreview()" [attr.aria-label]="i18n.t().projects.closePreview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="preview-content">
+        @if (previewUrl()) {
+          <div class="preview-iframe-wrapper">
+            <iframe class="preview-iframe" [src]="previewUrl()" frameborder="0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+          </div>
+        } @else {
+          <div class="preview-fallback">
+            <i class="fa-solid fa-eye-slash"></i>
+            <p>{{ i18n.t().projects.previewUnavailable }}</p>
+            <div class="preview-fallback-links">
+              @for (link of project.links; track link.label) {
+                <a [href]="link.url" target="_blank" class="btn-neon-primary" rel="noopener noreferrer">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> {{ i18n.t().projects.open }} {{ link.label }}
+                </a>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

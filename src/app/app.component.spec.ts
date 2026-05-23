@@ -14,16 +14,50 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'portafolio' title`, () => {
+  it('should have title portafolio', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('portafolio');
+    expect(fixture.componentInstance.title).toBe('portafolio');
   });
 
-  it('should render title', () => {
+  it('should render the navbar component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, portafolio');
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('app-navbar')).toBeTruthy();
+  });
+
+  it('should render the hero component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('app-hero')).toBeTruthy();
+  });
+
+  it('should render the about component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('app-about')).toBeTruthy();
+  });
+
+  it('should render the proyect component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('app-proyect')).toBeTruthy();
+  });
+
+  it('should render the contact component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('app-contact')).toBeTruthy();
+  });
+
+  it('should render the footer component', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('app-footer')).toBeTruthy();
   });
 });

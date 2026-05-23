@@ -1,0 +1,34 @@
+<section id="contacto" class="contact-section">
+  <h2 class="section-title">{{ i18n.t().contact.title }}</h2>
+  
+  <p class="contact-intro">
+    {{ i18n.t().contact.intro }}
+  </p>
+
+  <div class="contact-grid">
+    @for (channel of channels; track channel.name) {
+      <a [href]="channel.url" target="_blank" class="contact-card glass-card" [style.--brand-color]="channel.color">
+        <div class="contact-glow"></div>
+        <div class="contact-card-content">
+          <div class="contact-header">
+            <div class="icon-box">
+              @if (channel.svgPath) {
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path [attr.d]="channel.svgPath"/>
+                </svg>
+              } @else {
+                <i class="{{ channel.icon }}"></i>
+              }
+            </div>
+            <h3 class="contact-name">{{ channel.name }}</h3>
+          </div>
+          <p class="contact-desc">{{ i18n.t().contact[channel.descKey] }}</p>
+          <div class="contact-footer">
+            <span class="action-text">{{ i18n.t().contact.visit }}</span>
+            <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+</section>

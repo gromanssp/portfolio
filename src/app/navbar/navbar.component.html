@@ -1,1 +1,55 @@
-<p>navbar works!</p>
+<nav class="navbar-wrapper" (mouseenter)="isHovering.set(true)" (mouseleave)="isHovering.set(false)" (mousemove)="onMouseMove($event)">
+  <div class="navbar-glass">
+    <div class="navbar-glow" [style.opacity]="isHovering() ? 1 : 0" [style.background]="'radial-gradient(circle 200px at ' + mouseX() + 'px ' + mouseY() + 'px, rgba(0, 230, 118, 0.12), transparent 100%)'"></div>
+  </div>
+  
+  <div class="navbar-content">
+    <a class="logo-link" href="#inicio">
+      <img width="45" src="./assets/jg.jpg" alt="logo" />
+      <span class="logo-text">{{ i18n.t().nav.portfolio }}</span>
+    </a>
+
+    <div class="nav-center" [class.active]="isMenuOpen()">
+      <div class="nav-links">
+        <a href="#inicio" class="nav-link" (click)="isMenuOpen.set(false)">{{ i18n.t().nav.home }}</a>
+        <a href="#proyectos" class="nav-link" (click)="isMenuOpen.set(false)">{{ i18n.t().nav.projects }}</a>
+        <a href="#sobre" class="nav-link" (click)="isMenuOpen.set(false)">{{ i18n.t().nav.about }}</a>
+        <a href="#contacto" class="nav-link" (click)="isMenuOpen.set(false)">{{ i18n.t().nav.contact }}</a>
+      </div>
+
+      <div class="lang-selector-container">
+        <button class="lang-btn" (click)="toggleLanguageDropdown($event)">
+          <span>{{ i18n.currentLang() === 'ES' ? '🇪🇸' : i18n.currentLang() === 'EN' ? '🇺🇸' : '🇮🇹' }}</span>
+          <span class="lang-code">{{ i18n.currentLang() }}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="caret-svg" [class.open]="isLanguageDropdownOpen()">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+        
+        @if (isLanguageDropdownOpen()) {
+          <div class="lang-dropdown">
+            @for (lang of i18n.languages(); track lang.code) {
+              <button (click)="selectLanguage(lang.code)" [class.active]="i18n.currentLang() === lang.code">
+                <span>{{ lang.flag }}</span> {{ lang.code }}
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+      @if (isMenuOpen()) {
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      } @else {
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      }
+    </button>
+  </div>
+</nav>
