@@ -40,3 +40,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Design folder
+desing/
+
+# Root workspace files
+package.json
+pnpm-workspace.yaml
