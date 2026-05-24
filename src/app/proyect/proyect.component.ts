@@ -17,6 +17,7 @@ interface Project {
   colorRgb: string;
   links: ProjectLink[];
   icon: string;
+  localImage?: string;
 }
 
 @Component({
@@ -38,6 +39,7 @@ export class ProyectComponent {
 
   readonly i18n = inject(I18nService);
   private readonly screenshotCache = signal<Record<string, string>>({});
+  readonly screenshotsLoaded = signal(false);
 
   constructor(private sanitizer: DomSanitizer) {
     afterNextRender(() => this.loadScreenshots());
@@ -50,7 +52,7 @@ export class ProyectComponent {
       if (!demoLink) continue;
       try {
         const resp = await fetch(
-          `https://api.microlink.io?url=${encodeURIComponent(demoLink.url)}&screenshot=true&meta=false`
+          `https://api.microlink.io?url=${encodeURIComponent(demoLink.url)}&screenshot=true&meta=false&screenshot.waitUntil=networkidle0&screenshot.waitForTimeout=7000`
         );
         const data = await resp.json() as { data?: { screenshot?: { url: string } } };
         if (data?.data?.screenshot?.url) {
@@ -59,10 +61,20 @@ export class ProyectComponent {
       } catch {}
     }
     this.screenshotCache.set(cache);
+    this.screenshotsLoaded.set(true);
   }
 
   thumbScreenshot(project: Project): string | null {
     return this.screenshotCache()[project.id] ?? null;
+  }
+
+  thumbSrc(project: Project): string {
+    if (project.localImage) return project.localImage;
+    return this.screenshotCache()[project.id] ?? this.projectPlaceholder(project);
+  }
+
+  isLoading(project: Project): boolean {
+    return !project.localImage && !this.thumbScreenshot(project) && !this.screenshotsLoaded();
   }
 
   thumbGradient(project: Project): string {
@@ -81,6 +93,23 @@ export class ProyectComponent {
 
   useSvgIcon(project: Project): boolean {
     return !!project.icon;
+  }
+
+  private projectPlaceholder(project: Project): string {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+      <rect width="400" height="200" fill="#0a0f0d"/>
+      <rect width="400" height="200" fill="${project.colorHex}11"/>
+      <g stroke="${project.colorHex}" stroke-width="0.5" opacity="0.12">
+        ${[40,80,120,160].map(y => `<line x1="0" y1="${y}" x2="400" y2="${y}"/>`).join('')}
+        ${[40,80,120,160,200,240,280,320,360].map(x => `<line x1="${x}" y1="0" x2="${x}" y2="200"/>`).join('')}
+      </g>
+      <text x="200" y="100" font-family="monospace" font-size="16" fill="${project.colorHex}" opacity="0.5" text-anchor="middle" dominant-baseline="middle">${this.escapeXml(project.title)}</text>
+    </svg>`;
+    return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+  }
+
+  private escapeXml(str: string): string {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
   }
 
   private readonly techIconMap: Record<string, string> = {
@@ -130,6 +159,7 @@ export class ProyectComponent {
     {
       id: 'agent-ia',
       title: 'Agent IA DevOps',
+      localImage: 'assets/projects/agent-ia.png',
       description: 'Chat interactivo en lenguaje natural diseñado para la administración de servidores VPS, permitiendo a los usuarios administrar, configurar y monitorear sus entornos a través de conversaciones intuitivas y eficientes en español.',
       tags: ['Angular', 'N8N', 'Docker', 'Firebase', 'Chart.js'],
       color: 'purple',
@@ -144,6 +174,7 @@ export class ProyectComponent {
     {
       id: 'medicos-pro',
       title: 'Médicos Pro',
+      localImage: 'assets/projects/medicos-pro-1.png',
       description: 'Sistema de administración para la gestión en hospitales de médicos, con control de usuarios, sistema de búsqueda, autenticación y registro, así como roles de usuarios y permisos.',
       tags: ['Angular', 'Node.js', 'MongoDB', 'Express', 'Tailwind'],
       color: 'cyan',
