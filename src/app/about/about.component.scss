@@ -6,97 +6,215 @@
   padding-bottom: 4rem;
 }
 
-/* Biografía Principal */
-.bio-container {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
-  padding: 3rem !important;
-  align-items: center;
-}
-
-.bio-content {
+/* Bio Animada — Escenografía Profesional */
+.bio-animation {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-
-  .bio-title {
-    font-size: 2.2rem;
-    color: var(--text-main);
-    
-    &::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 3px;
-      background: var(--primary-neon);
-      margin-top: 0.5rem;
-      border-radius: 2px;
-      box-shadow: 0 0 8px var(--primary-neon);
-    }
-  }
-
-  .bio-text {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-    text-align: justify;
-  }
-}
-
-.bio-avatar-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 220px;
-  width: 100%;
+  justify-content: center;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid var(--border-neon);
+  border-radius: 16px;
+  padding: 2.5rem 2rem 1.5rem;
+  overflow: hidden;
 }
 
-.avatar-image {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
+.bio-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
-  border: 3px solid var(--primary-neon);
-  box-shadow: 0 0 20px var(--primary-neon-glow);
-  z-index: 5;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.bio-avatar-mini {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-neon);
+    box-shadow: 0 0 12px var(--primary-neon-glow);
     object-fit: cover;
   }
 }
 
-.avatar-glow-ring {
+.bio-scenes-container {
+  position: relative;
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Cada escena ── */
+.bio-scene {
   position: absolute;
-  border-radius: 50%;
-  border: 1.5px solid rgba(0, 230, 118, 0.2);
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.4s ease;
 
-  &.ring-1 {
-    width: 170px;
-    height: 170px;
-    animation: rotateRing 12s linear infinite;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    animation: scene-flash 0.08s ease-out forwards;
   }
 
-  &.ring-2 {
-    width: 200px;
-    height: 200px;
-    border-style: dashed;
-    animation: rotateRingReverse 18s linear infinite;
+  &.fade-out {
+    opacity: 0;
   }
 }
 
-@keyframes rotateRing {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* ── Año — zoom dramático desde el centro ── */
+.scene-year {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2.5);
+  font-family: var(--font-mono);
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--year-color, rgba(255, 255, 255, 0.10));
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  opacity: 0;
+  z-index: 5;
+
+  .active & {
+    animation: year-entrance 1.1s ease-out forwards;
+  }
 }
 
-@keyframes rotateRingReverse {
-  0% { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
+/* ── Tecnologías: overlapping ── */
+.scene-context {
+  position: relative;
+  z-index: 10;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.04em;
+  opacity: 0;
+
+  .active & {
+    animation: fadeInUp 0.5s 2.3s ease-out both;
+  }
+}
+
+.scene-techs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  z-index: 3;
+}
+
+.scene-tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+
+  &:first-child {
+    transform: translateX(20px);
+    .active & {
+      animation: tech-enter 0.5s 1.15s ease-out both;
+    }
+  }
+
+  &:last-child {
+    transform: translateX(-20px);
+    .active & {
+      animation: tech-enter 0.5s 1.75s ease-out both;
+    }
+  }
+}
+
+.scene-tech-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 25, 16, 0.92);
+  border: 2px solid var(--tech-color);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.3);
+
+  i, .tech-svg {
+    font-size: 1.5rem;
+    color: var(--tech-color);
+    filter: drop-shadow(0 0 5px var(--tech-color));
+  }
+
+  .tech-svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &.milestone {
+    border-color: #FFD700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.15);
+    animation: milestone-glow 2s ease-in-out infinite;
+  }
+}
+
+.scene-tech-label {
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.1;
+  max-width: 70px;
+}
+
+/* ── Dots de progreso ── */
+.scene-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  z-index: 10;
+}
+
+.scene-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &.active {
+    background: var(--primary-neon);
+    box-shadow: 0 0 8px var(--primary-neon);
+    transform: scale(1.3);
+  }
+
+  &.milestone.active {
+    background: #FFD700;
+    box-shadow: 0 0 10px #FFD700;
+  }
 }
 
 /* Trayectoria / Experiencia */
@@ -416,22 +534,21 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-  .bio-container {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-
-  .bio-content .bio-title::after {
-    margin: 0.5rem auto 0;
-  }
-
-  .bio-avatar-wrapper {
-    order: -1; /* Avatar arriba */
-  }
-
   .bubbles-container {
     height: 550px;
+  }
+
+  .scene-year {
+    font-size: 4rem;
+  }
+
+  .scene-techs { gap: 3rem; }
+
+  .scene-tech-icon {
+    width: 52px;
+    height: 52px;
+    i, .tech-svg { font-size: 1.3rem; }
+    .tech-svg { width: 1.3rem; height: 1.3rem; }
   }
 }
 
@@ -475,10 +592,6 @@
 }
 
 @media (max-width: 576px) {
-  .bio-container {
-    padding: 1.5rem !important;
-  }
-
   .timeline-line {
     left: 14px;
   }
@@ -518,5 +631,52 @@
     &.large { width: 80px; height: 80px; }
     &.medium { width: 70px; height: 70px; }
     &.small { width: 55px; height: 55px; }
+  }
+
+  .scene-year {
+    font-size: 3.2rem;
+  }
+
+  .scene-tech-icon {
+    width: 46px;
+    height: 46px;
+    i, .tech-svg { font-size: 1.1rem; }
+    .tech-svg { width: 1.1rem; height: 1.1rem; }
+  }
+
+  .scene-tech-label {
+    font-size: 0.65rem;
+  }
+
+  .scene-techs { gap: 2.5rem; }
+
+  .scene-tech {
+    &:first-child { transform: translateX(12px); }
+    &:last-child { transform: translateX(-12px); }
+  }
+
+  .scene-context {
+    font-size: 0.7rem;
+    max-width: 200px;
+  }
+
+  .bio-animation {
+    padding: 1.5rem 1rem 1rem;
+    min-height: 200px;
+  }
+
+  .bio-scenes-container {
+    min-height: 140px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

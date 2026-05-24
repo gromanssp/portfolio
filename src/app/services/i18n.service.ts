@@ -23,6 +23,7 @@ interface Translations {
     title: string;
     expTitle: string;
     skillsTitle: string;
+    techTitle: string;
     bio: string;
   };
   experience: {
@@ -30,6 +31,7 @@ interface Translations {
     dclick: string;
     emgef: string;
     ati: string;
+    salud: string;
   };
   projects: {
     title: string;
@@ -76,13 +78,15 @@ const ES: Translations = {
     title: 'Sobre Mí',
     expTitle: 'Trayectoria / Experiencia',
     skillsTitle: 'Habilidades',
-    bio: 'Desarrollador de software con más de 5 años de experiencia, especializado en análisis de problemas y soluciones prácticas. Creo aplicaciones desde cero en Flutter y modernizo proyectos web con Angular, enfocándome en UX front-end, API REST y análisis de datos. Comprometido con la mejora continua y soluciones tecnológicas de alta calidad.'
+    techTitle: 'Evolución Tecnológica',
+    bio: 'Ingeniero informático con más de 12 años de experiencia en TI, desde administración de sistemas y redes hasta desarrollo full stack. Empecé en soporte técnico y virtualización, evolucioné hacia el desarrollo web con Angular y Flutter, y hoy combino ambas facetas creando aplicaciones modernas, APIs robustas y soluciones con automatización inteligente. Apasionado por la mejora continua y la tecnología bien hecha.'
   },
   experience: {
     automa: 'Desarrollador líder en Flutter y desarrollador full stack en Angular, Java con Spring Boot, entre otras tecnologías.',
     dclick: 'Desarrollador líder en Flutter y full stack en Angular, Nestjs, SQL, entre otras tecnologías.',
     emgef: 'Desarrollo de web empresarial. Administración de sistemas virtualizados, monitoreo y backup.',
-    ati: 'Administrar sistemas, implementación de sistemas de tickets y despliegue de aplicaciones web.'
+    ati: 'Administración de sistemas, implementación de tickets y despliegue de aplicaciones web.',
+    salud: 'Supervisión de TI, administración de redes Windows y Linux, virtualización con Proxmox, diseño web con WordPress y soporte técnico integral.'
   },
   projects: {
     title: 'Proyectos',
@@ -129,13 +133,15 @@ const EN: Translations = {
     title: 'About Me',
     expTitle: 'Career / Experience',
     skillsTitle: 'Skills',
-    bio: 'Software developer with 5+ years of experience, specialized in problem analysis and practical solutions. I build applications from scratch in Flutter and modernize web projects with Angular, focusing on front-end UX, REST APIs, and data analytics. Committed to continuous improvement and high-quality technological solutions.'
+    techTitle: 'Tech Evolution',
+    bio: 'Computer engineer with over 12 years of IT experience, from systems administration and networking to full stack development. I started in technical support and virtualization, evolved into web development with Angular and Flutter, and today I combine both sides creating modern applications, robust APIs, and intelligent automation solutions. Passionate about continuous improvement and well-crafted technology.'
   },
   experience: {
     automa: 'Lead Flutter developer and full stack developer in Angular, Java with Spring Boot, among other technologies.',
     dclick: 'Lead Flutter developer and full stack in Angular, Nestjs, SQL, among other technologies.',
     emgef: 'Corporate web development. Virtualized systems administration, monitoring and backup.',
-    ati: 'Systems administration, ticket system implementation and web application deployment.'
+    ati: 'Systems administration, ticket system implementation and web application deployment.',
+    salud: 'IT supervision, Windows and Linux network administration, virtualization with Proxmox, web design with WordPress, and comprehensive technical support.'
   },
   projects: {
     title: 'Projects',
@@ -182,13 +188,15 @@ const IT: Translations = {
     title: 'Chi Sono',
     expTitle: 'Carriera / Esperienza',
     skillsTitle: 'Competenze',
-    bio: 'Sviluppatore di software con oltre 5 anni di esperienza, specializzato nell\'analisi dei problemi e soluzioni pratiche. Creo applicazioni da zero in Flutter e modernizzo progetti web con Angular, concentrandomi su UX front-end, API REST e analisi dei dati. Impegnato nel miglioramento continuo e in soluzioni tecnologiche di alta qualità.'
+    techTitle: 'Evoluzione Tecnologica',
+    bio: 'Ingegnere informatico con oltre 12 anni di esperienza IT, dall\'amministrazione di sistemi e reti allo sviluppo full stack. Ho iniziato nel supporto tecnico e nella virtualizzazione, mi sono evoluto nello sviluppo web con Angular e Flutter, e oggi combino entrambi creando applicazioni moderne, API robuste e soluzioni con automazione intelligente. Appassionato di miglioramento continuo e tecnologia ben fatta.'
   },
   experience: {
     automa: 'Sviluppatore leader Flutter e full stack in Angular, Java con Spring Boot, tra le altre tecnologie.',
     dclick: 'Sviluppatore leader Flutter e full stack in Angular, Nestjs, SQL, tra le altre tecnologie.',
     emgef: 'Sviluppo web aziendale. Amministrazione di sistemi virtualizzati, monitoraggio e backup.',
-    ati: 'Amministrazione sistemi, implementazione sistemi di ticket e distribuzione applicazioni web.'
+    ati: 'Amministrazione sistemi, implementazione ticket e distribuzione applicazioni web.',
+    salud: 'Supervisione IT, amministrazione reti Windows e Linux, virtualizzazione con Proxmox, web design con WordPress e supporto tecnico completo.'
   },
   projects: {
     title: 'Progetti',

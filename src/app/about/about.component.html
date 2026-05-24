@@ -1,17 +1,41 @@
 <section id="sobre" class="about-section">
-  <!-- Biografía Principal -->
-  <div class="bio-container glass-card">
-    <div class="bio-content">
-      <h2 class="bio-title">{{ i18n.t().about.title }}</h2>
-      <p class="bio-text">{{ i18n.t().about.bio }}</p>
+  <!-- Bio Animada (reemplaza el texto) -->
+  <div class="bio-animation" aria-label="Biografía animada de Jorge González Román">
+    <p class="bio-sr-only">{{ i18n.t().about.bio }}</p>
+
+    <div class="bio-avatar-mini">
+      <img src="https://avatars.githubusercontent.com/u/62961675?v=4" alt="Jorge González Román" />
     </div>
-    
-    <div class="bio-avatar-wrapper">
-      <div class="avatar-glow-ring ring-1"></div>
-      <div class="avatar-glow-ring ring-2"></div>
-      <div class="avatar-image">
-        <img src="https://avatars.githubusercontent.com/u/62961675?v=4" alt="Jorge González Román" />
-      </div>
+
+    <div class="bio-scenes-container">
+      @for (scene of bioScenes(); track scene.year; let i = $index) {
+        <div class="bio-scene" [class.active]="currentSceneIndex() === i" [class.fade-out]="fadingSceneIndex() === i">
+          <div class="scene-year" [style.--year-color]="'#00E676'">{{ scene.year }}</div>
+          <div class="scene-techs">
+            @for (tech of scene.techs; track tech.label; let t = $index) {
+              <div class="scene-tech" [style.--tech-color]="tech.color" [style.z-index]="scene.techs.length - t">
+                <div class="scene-tech-icon" [class.milestone]="scene.milestone">
+                  @if (tech.svg) {
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="tech-svg">
+                      <path [attr.d]="tech.svg"/>
+                    </svg>
+                  } @else {
+                    <i class="{{ tech.icon }}"></i>
+                  }
+                </div>
+                <span class="scene-tech-label">{{ tech.label }}</span>
+              </div>
+            }
+          </div>
+          <p class="scene-context">{{ scene.context }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="scene-dots">
+      @for (scene of bioScenes(); track scene.year; let i = $index) {
+        <span class="scene-dot" [class.active]="currentSceneIndex() === i" [class.milestone]="scene.milestone"></span>
+      }
     </div>
   </div>
 

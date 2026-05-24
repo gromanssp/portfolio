@@ -238,3 +238,26 @@ section {
 .float-2 { animation: float-2 7s ease-in-out infinite; }
 .float-3 { animation: float-3 5.5s ease-in-out infinite; }
 .float-4 { animation: float-4 6.5s ease-in-out infinite; }
+
+@keyframes scene-flash {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes year-entrance {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(2.5); }
+  25%  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  55%  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  70%  { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+}
+
+@keyframes tech-enter {
+  0%   { opacity: 0; transform: translateY(12px) scale(0.85); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes milestone-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.15); }
+  50% { box-shadow: 0 0 24px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 215, 0, 0.25); }
+}
