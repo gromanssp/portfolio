@@ -7,6 +7,8 @@ interface Translations {
     home: string;
     projects: string;
     about: string;
+    experience: string;
+    skills: string;
     contact: string;
     portfolio: string;
   };
@@ -58,6 +60,8 @@ const ES: Translations = {
     home: 'Inicio',
     projects: 'Proyectos',
     about: 'Sobre Mí',
+    experience: 'Trayectoria',
+    skills: 'Habilidades',
     contact: 'Contacto',
     portfolio: 'Portfolio'
   },
@@ -109,6 +113,8 @@ const EN: Translations = {
     home: 'Home',
     projects: 'Projects',
     about: 'About Me',
+    experience: 'Experience',
+    skills: 'Skills',
     contact: 'Contact',
     portfolio: 'Portfolio'
   },
@@ -160,6 +166,8 @@ const IT: Translations = {
     home: 'Home',
     projects: 'Progetti',
     about: 'Chi Sono',
+    experience: 'Esperienza',
+    skills: 'Competenze',
     contact: 'Contatti',
     portfolio: 'Portfolio'
   },
