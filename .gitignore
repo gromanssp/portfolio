@@ -45,5 +45,5 @@ Thumbs.db
 desing/
 
 # Root workspace files
-package.json
-pnpm-workspace.yaml
+/package.json
+/pnpm-workspace.yaml
