@@ -150,7 +150,7 @@ export class AboutComponent implements OnDestroy {
   ]);
 
   readonly experience = computed(() =>
-    this.experienceBase().map(e => ({
+    this.experienceBase().slice().reverse().map(e => ({
       ...e,
       description: this.i18n.t().experience[e.descriptionKey]
     }))
