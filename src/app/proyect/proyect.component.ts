@@ -64,21 +64,16 @@ export class ProyectComponent {
     this.screenshotsLoaded.set(true);
   }
 
-  thumbScreenshot(project: Project): string | null {
-    return this.screenshotCache()[project.id] ?? null;
+  hasRealImage(project: Project): boolean {
+    return !!project.localImage || !!this.screenshotCache()[project.id];
   }
 
-  thumbSrc(project: Project): string {
-    if (project.localImage) return project.localImage;
-    return this.screenshotCache()[project.id] ?? this.projectPlaceholder(project);
-  }
-
-  isLoading(project: Project): boolean {
-    return !project.localImage && !this.thumbScreenshot(project) && !this.screenshotsLoaded();
+  realImageSrc(project: Project): string {
+    return project.localImage ?? this.screenshotCache()[project.id] ?? '';
   }
 
   thumbGradient(project: Project): string {
-    return `linear-gradient(135deg, ${project.colorHex}22 0%, rgba(3,25,16,0.8) 100%)`;
+    return `linear-gradient(135deg, ${project.colorHex}33 0%, ${project.colorHex}11 50%, rgba(3,25,16,0.95) 100%)`;
   }
 
   hasDemo(project: Project): boolean {
@@ -93,23 +88,6 @@ export class ProyectComponent {
 
   useSvgIcon(project: Project): boolean {
     return !!project.icon;
-  }
-
-  private projectPlaceholder(project: Project): string {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
-      <rect width="400" height="200" fill="#0a0f0d"/>
-      <rect width="400" height="200" fill="${project.colorHex}11"/>
-      <g stroke="${project.colorHex}" stroke-width="0.5" opacity="0.12">
-        ${[40,80,120,160].map(y => `<line x1="0" y1="${y}" x2="400" y2="${y}"/>`).join('')}
-        ${[40,80,120,160,200,240,280,320,360].map(x => `<line x1="${x}" y1="0" x2="${x}" y2="200"/>`).join('')}
-      </g>
-      <text x="200" y="100" font-family="monospace" font-size="16" fill="${project.colorHex}" opacity="0.5" text-anchor="middle" dominant-baseline="middle">${this.escapeXml(project.title)}</text>
-    </svg>`;
-    return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-  }
-
-  private escapeXml(str: string): string {
-    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
   }
 
   private readonly techIconMap: Record<string, string> = {
@@ -225,10 +203,11 @@ export class ProyectComponent {
       icon: ''
     },
     {
-      id: 'password-generator',
-      title: 'Password Generator',
-      description: 'Plataforma para generar passwords seguros automáticos con un solo click.',
-      tags: ['Angular'],
+      id: 'securegen',
+      title: 'SecureGen',
+      localImage: 'assets/projects/secure-gen.png',
+      description: 'Plataforma integral de seguridad de contraseñas con generador, análisis de fortaleza, simulación de hacking, verificación de filtraciones y panel de control.',
+      tags: ['Angular', 'TypeScript', 'CSS'],
       color: 'green',
       colorHex: '#22c55e',
       colorRgb: '34, 197, 94',

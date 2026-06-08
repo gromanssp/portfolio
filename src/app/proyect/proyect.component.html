@@ -5,22 +5,24 @@
     @for (project of projects(); track project.id) {
       <div class="project-card glass-card" [style.--project-color]="project.colorHex" [style.--project-rgb]="project.colorRgb">
         <!-- Thumbnail preview con overlay -->
-        <div class="project-thumb" (click)="openPreview(project)" [style.--thumb-color]="project.colorHex">
+        <div class="project-thumb" (click)="openPreview(project)" [style.--thumb-color]="project.colorHex" [style.--project-rgb]="project.colorRgb">
           <div class="project-thumb-bg" [style.background]="thumbGradient(project)">
-            <img [src]="thumbSrc(project)" alt="" class="project-thumb-img" loading="lazy" crossorigin="anonymous"
-              [class.loaded]="!isLoading(project)">
+            @if (hasRealImage(project)) {
+              <img [src]="realImageSrc(project)" alt="" class="project-thumb-img loaded" loading="lazy" crossorigin="anonymous" />
+            } @else {
+              <div class="project-thumb-placeholder">
+                @if (useSvgIcon(project)) {
+                  <svg class="placeholder-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path [attr.d]="project.icon"/>
+                  </svg>
+                } @else {
+                  <i class="{{ techIcon(project) }} placeholder-icon"></i>
+                }
+                <span class="placeholder-title">{{ project.title }}</span>
+              </div>
+            }
             <div class="project-thumb-grid"></div>
-            @if (isLoading(project)) {
-              <div class="project-thumb-skeleton"></div>
-            }
             <div class="project-thumb-glow" [style.background]="'radial-gradient(circle, ' + project.colorHex + '44 0%, transparent 70%)'"></div>
-            @if (useSvgIcon(project)) {
-              <svg class="project-thumb-icon-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path [attr.d]="project.icon"/>
-              </svg>
-            } @else if (!hasDemo(project)) {
-              <i class="{{ techIcon(project) }} project-thumb-icon"></i>
-            }
           </div>
           <div class="project-thumb-overlay">
             <div class="project-thumb-eye">
