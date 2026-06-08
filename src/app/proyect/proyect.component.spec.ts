@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { ProyectComponent } from './proyect.component';
-import { I18nService } from '../services/i18n.service';
+import { EN } from '../services/translation';
 
 describe('ProyectComponent', () => {
   let component: ProyectComponent;
   let fixture: ComponentFixture<ProyectComponent>;
-  let i18n: I18nService;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProyectComponent],
+      providers: [provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProyectComponent);
     component = fixture.componentInstance;
-    i18n = TestBed.inject(I18nService);
     fixture.detectChanges();
   });
 
@@ -24,7 +23,7 @@ describe('ProyectComponent', () => {
 
   it('should render projects title from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().projects.title);
+    expect(el.textContent).toContain(EN.projects.title);
   });
 
   it('should have 8 projects', () => {

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { I18nService } from '../services/i18n.service';
+import { TranslationService } from '../services/translation';
 
 @Component({
   selector: 'app-hero',
@@ -9,7 +9,7 @@ import { I18nService } from '../services/i18n.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroComponent {
-  readonly i18n = inject(I18nService);
+  readonly i18n = inject(TranslationService);
   readonly heroTags = ['Angular', 'TypeScript', 'Node.js', 'Docker', 'Flutter'];
   readonly alias = 'Jorge González';
 }

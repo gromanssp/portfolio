@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal, computed, inject, afterNextRender } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { I18nService } from '../services/i18n.service';
+import { TranslationService } from '../services/translation';
 
 interface ProjectLink {
   label: string;
@@ -37,7 +37,7 @@ export class ProyectComponent {
     return this.sanitizer.bypassSecurityTrustResourceUrl(demoLink.url);
   });
 
-  readonly i18n = inject(I18nService);
+  readonly i18n = inject(TranslationService);
   private readonly screenshotCache = signal<Record<string, string>>({});
   readonly screenshotsLoaded = signal(false);
 

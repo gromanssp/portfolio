@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 
@@ -14,50 +16,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have title portafolio', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    expect(fixture.componentInstance.title).toBe('portafolio');
-  });
-
-  it('should render the navbar component', () => {
+  it('should render router-outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('app-navbar')).toBeTruthy();
+    expect(el.querySelector('router-outlet')).toBeTruthy();
   });
 
-  it('should render the hero component', () => {
+  it('should render toast container', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('app-hero')).toBeTruthy();
-  });
-
-  it('should render the about component', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('app-about')).toBeTruthy();
-  });
-
-  it('should render the proyect component', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('app-proyect')).toBeTruthy();
-  });
-
-  it('should render the contact component', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('app-contact')).toBeTruthy();
-  });
-
-  it('should render the footer component', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('app-footer')).toBeTruthy();
+    expect(el.querySelector('app-toast-container')).toBeTruthy();
   });
 });

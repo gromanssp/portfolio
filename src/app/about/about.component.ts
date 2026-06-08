@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, computed, signal, afterNextRender, OnDestroy } from '@angular/core';
-import { I18nService } from '../services/i18n.service';
+import { TranslationService } from '../services/translation';
 
 interface ExperienceItem {
   company: string;
@@ -42,7 +42,7 @@ interface SkillBubble {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutComponent implements OnDestroy {
-  readonly i18n = inject(I18nService);
+  readonly i18n = inject(TranslationService);
   readonly currentSceneIndex = signal(0);
   readonly fadingSceneIndex = signal<number | null>(null);
   private sceneTimer: ReturnType<typeof setTimeout> | null = null;

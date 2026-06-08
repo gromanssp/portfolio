@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { I18nService } from '../services/i18n.service';
+import { TranslationService } from '../services/translation';
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +9,6 @@ import { I18nService } from '../services/i18n.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-  readonly i18n = inject(I18nService);
+  readonly i18n = inject(TranslationService);
   readonly currentYear = new Date().getFullYear();
 }

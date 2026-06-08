@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre Mí",
+    "experience": "Trayectoria",
+    "skills": "Habilidades",
+    "contact": "Contacto",
+    "portfolio": "Portfolio"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "role": "Full Stack Developer",
+    "publicity": "¿Tu web es lenta, se ve desactualizada o no convierte como debería? Cada segundo cuenta: el rendimiento, el diseño y la experiencia de usuario impactan directamente en tus resultados. Te ayudo a optimizar tu sitio para que sea más rápido, atractivo y eficaz.",
+    "viewProjects": "Ver Proyectos",
+    "connect": "Conecta Conmigo"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "expTitle": "Trayectoria / Experiencia",
+    "skillsTitle": "Habilidades",
+    "techTitle": "Evolución Tecnológica",
+    "bio": "Ingeniero informático con más de 12 años de experiencia en TI, desde administración de sistemas y redes hasta desarrollo full stack. Empecé en soporte técnico y virtualización, evolucioné hacia el desarrollo web con Angular y Flutter, y hoy combino ambas facetas creando aplicaciones modernas, APIs robustas y soluciones con automatización inteligente. Apasionado por la mejora continua y la tecnología bien hecha."
+  },
+  "experience": {
+    "automa": "Desarrollador líder en Flutter y desarrollador full stack en Angular, Java con Spring Boot, entre otras tecnologías.",
+    "dclick": "Desarrollador líder en Flutter y full stack en Angular, Nestjs, SQL, entre otras tecnologías.",
+    "emgef": "Desarrollo de web empresarial. Administración de sistemas virtualizados, monitoreo y backup.",
+    "ati": "Administración de sistemas, implementación de tickets y despliegue de aplicaciones web.",
+    "salud": "Supervisión de TI, administración de redes Windows y Linux, virtualización con Proxmox, diseño web con WordPress y soporte técnico integral."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "preview": "Preview",
+    "comingSoon": "Próximamente",
+    "previewUnavailable": "Vista previa no disponible",
+    "open": "Abrir",
+    "closePreview": "Cerrar vista previa",
+    "demoPreview": "Demo Preview"
+  },
+  "contact": {
+    "title": "Conecta Conmigo",
+    "intro": "¿Tienes un proyecto en mente, buscas un colaborador técnico o simplemente quieres decir hola? Conéctate conmigo en mis plataformas profesionales.",
+    "visit": "Visitar Perfil",
+    "github": "Explora mis repositorios de código, demos y colaboraciones open-source.",
+    "linkedin": "Conectemos en el ámbito profesional, comparte ideas o hablemos de oportunidades.",
+    "fiverr": "Contrátame de manera directa y segura para desarrollos freelance personalizados.",
+    "upwork": "Colaboremos en tu próximo gran MVP o ampliemos tu equipo técnico a largo plazo.",
+    "freelancer": "Encuéntrame también en Freelancer para proyectos de desarrollo web y móvil."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  }
+}

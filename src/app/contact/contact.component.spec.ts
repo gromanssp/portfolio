@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { ContactComponent } from './contact.component';
-import { I18nService } from '../services/i18n.service';
+import { EN } from '../services/translation';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
   let fixture: ComponentFixture<ContactComponent>;
-  let i18n: I18nService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ContactComponent],
+      providers: [provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ContactComponent);
     component = fixture.componentInstance;
-    i18n = TestBed.inject(I18nService);
     fixture.detectChanges();
   });
 
@@ -24,12 +24,12 @@ describe('ContactComponent', () => {
 
   it('should render contact title from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().contact.title);
+    expect(el.textContent).toContain(EN.contact.title);
   });
 
   it('should render contact intro from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().contact.intro);
+    expect(el.textContent).toContain(EN.contact.intro);
   });
 
   it('should have 5 social channels', () => {
@@ -45,7 +45,7 @@ describe('ContactComponent', () => {
 
   it('should render all channel descriptions from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    const t = i18n.t().contact;
+    const t = EN.contact;
     const keys = component.channels.map(ch => ch.descKey) as Array<keyof typeof t>;
     keys.forEach(key => {
       const desc = t[key] as string;
@@ -57,8 +57,8 @@ describe('ContactComponent', () => {
   it('should have correct URLs for all channels', () => {
     const links = fixture.nativeElement.querySelectorAll('.contact-card');
     expect(links.length).toBe(5);
-    links.forEach((link: HTMLAnchorElement, i: number) => {
-      expect(link.getAttribute('href')).toBe(component.channels[i].url);
+    links.forEach((link: Element, i: number) => {
+      expect((link as HTMLAnchorElement).getAttribute('href')).toBe(component.channels[i].url);
     });
   });
 
@@ -66,20 +66,17 @@ describe('ContactComponent', () => {
     const el = fixture.nativeElement as HTMLElement;
     const links = el.querySelectorAll('a');
     let visitCount = 0;
-    links.forEach((link: HTMLAnchorElement) => {
-      if (link.textContent?.includes(i18n.t().contact.visit)) {
+    links.forEach((link: Element) => {
+      if ((link as HTMLAnchorElement).textContent?.includes(EN.contact.visit)) {
         visitCount++;
       }
     });
     expect(visitCount).toBeGreaterThanOrEqual(5);
   });
 
-  it('should update channel descriptions when language changes', () => {
-    const oldText = i18n.t().contact.github;
-    i18n.setLang('EN');
-    fixture.detectChanges();
+  it('should render GitHub channel description in English by default', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().contact.github);
+    expect(el.textContent).toContain(EN.contact.github);
   });
 
   it('should render section with id contacto', () => {

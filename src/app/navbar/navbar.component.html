@@ -21,8 +21,8 @@
 
       <div class="lang-selector-container">
         <button class="lang-btn" (click)="toggleLanguageDropdown($event)">
-          <span>{{ i18n.currentLang() === 'ES' ? '🇪🇸' : i18n.currentLang() === 'EN' ? '🇺🇸' : '🇮🇹' }}</span>
-          <span class="lang-code">{{ i18n.currentLang() }}</span>
+          <span>{{ i18n.locale() === 'es' ? '🇪🇸' : i18n.locale() === 'en' ? '🇺🇸' : '🇮🇹' }}</span>
+          <span class="lang-code">{{ i18n.locale() === 'es' ? 'ES' : i18n.locale() === 'en' ? 'EN' : 'IT' }}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="caret-svg" [class.open]="isLanguageDropdownOpen()">
             <path d="M6 9l6 6 6-6"/>
           </svg>
@@ -31,7 +31,7 @@
         @if (isLanguageDropdownOpen()) {
           <div class="lang-dropdown">
             @for (lang of i18n.languages(); track lang.code) {
-              <button (click)="selectLanguage(lang.code)" [class.active]="i18n.currentLang() === lang.code">
+              <button (click)="selectLanguage(lang.code)" [class.active]="i18n.locale() === lang.code">
                 <span>{{ lang.flag }}</span> {{ lang.code }}
               </button>
             }

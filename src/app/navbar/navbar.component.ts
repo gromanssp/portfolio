@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal, inject } from '@angular/core';
-import { I18nService, Lang } from '../services/i18n.service';
+import { TranslationService, type Locale } from '../services/translation';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +9,7 @@ import { I18nService, Lang } from '../services/i18n.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
-  readonly i18n = inject(I18nService);
+  readonly i18n = inject(TranslationService);
   readonly isMenuOpen = signal<boolean>(false);
   readonly isLanguageDropdownOpen = signal<boolean>(false);
   readonly isHovering = signal<boolean>(false);
@@ -28,8 +28,8 @@ export class NavbarComponent {
     this.isLanguageDropdownOpen.update(open => !open);
   }
 
-  selectLanguage(lang: Lang): void {
-    this.i18n.setLang(lang);
+  selectLanguage(locale: Locale): void {
+    this.i18n.setLocale(locale);
     this.isLanguageDropdownOpen.set(false);
   }
 

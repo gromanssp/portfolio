@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Progetti",
+    "about": "Chi Sono",
+    "experience": "Esperienza",
+    "skills": "Competenze",
+    "contact": "Contatti",
+    "portfolio": "Portfolio"
+  },
+  "hero": {
+    "greeting": "Ciao, sono",
+    "role": "Full Stack Developer",
+    "publicity": "Il tuo sito è lento, obsoleto o non converte come dovrebbe? Ogni secondo conta: prestazioni, design ed esperienza utente incidono direttamente sui tuoi risultati. Ti aiuto a ottimizzare il tuo sito per renderlo più veloce, attraente ed efficace.",
+    "viewProjects": "Vedi Progetti",
+    "connect": "Contattami"
+  },
+  "about": {
+    "title": "Chi Sono",
+    "expTitle": "Carriera / Esperienza",
+    "skillsTitle": "Competenze",
+    "techTitle": "Evoluzione Tecnologica",
+    "bio": "Ingegnere informatico con oltre 12 anni di esperienza IT, dall'amministrazione di sistemi e reti allo sviluppo full stack. Ho iniziato nel supporto tecnico e nella virtualizzazione, mi sono evoluto nello sviluppo web con Angular e Flutter, e oggi combino entrambi creando applicazioni moderne, API robuste e soluzioni con automazione intelligente. Appassionato di miglioramento continuo e tecnologia ben fatta."
+  },
+  "experience": {
+    "automa": "Sviluppatore leader Flutter e full stack in Angular, Java con Spring Boot, tra le altre tecnologie.",
+    "dclick": "Sviluppatore leader Flutter e full stack in Angular, Nestjs, SQL, tra le altre tecnologie.",
+    "emgef": "Sviluppo web aziendale. Amministrazione di sistemi virtualizzati, monitoraggio e backup.",
+    "ati": "Amministrazione sistemi, implementazione ticket e distribuzione applicazioni web.",
+    "salud": "Supervisione IT, amministrazione reti Windows e Linux, virtualizzazione con Proxmox, web design con WordPress e supporto tecnico completo."
+  },
+  "projects": {
+    "title": "Progetti",
+    "preview": "Anteprima",
+    "comingSoon": "Prossimamente",
+    "previewUnavailable": "Anteprima non disponibile",
+    "open": "Apri",
+    "closePreview": "Chiudi anteprima",
+    "demoPreview": "Anteprima Demo"
+  },
+  "contact": {
+    "title": "Contattami",
+    "intro": "Hai un progetto in mente, cerchi un collaboratore tecnico o vuoi semplicemente salutarmi? Contattami sulle mie piattaforme professionali.",
+    "visit": "Visita Profilo",
+    "github": "Esplora i miei repository di codice, demo e collaborazioni open-source.",
+    "linkedin": "Connettiamoci professionalmente, condividi idee o parliamo di opportunità.",
+    "fiverr": "Assumimi direttamente e in sicurezza per sviluppo freelance personalizzato.",
+    "upwork": "Collaboriamo al tuo prossimo grande MVP o espandiamo il tuo team tecnico a lungo termine.",
+    "freelancer": "Trovami anche su Freelancer per progetti di sviluppo web e mobile."
+  },
+  "footer": {
+    "rights": "Tutti i diritti riservati."
+  }
+}

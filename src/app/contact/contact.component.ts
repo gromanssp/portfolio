@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { I18nService } from '../services/i18n.service';
+import { TranslationService } from '../services/translation';
 
 interface SocialChannel {
   name: string;
@@ -18,7 +18,7 @@ interface SocialChannel {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactComponent {
-  readonly i18n = inject(I18nService);
+  readonly i18n = inject(TranslationService);
 
   readonly channels: SocialChannel[] = [
     {

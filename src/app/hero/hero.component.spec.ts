@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { HeroComponent } from './hero.component';
-import { I18nService } from '../services/i18n.service';
+import { EN } from '../services/translation';
 
 describe('HeroComponent', () => {
   let component: HeroComponent;
   let fixture: ComponentFixture<HeroComponent>;
-  let i18n: I18nService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeroComponent],
+      providers: [provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroComponent);
     component = fixture.componentInstance;
-    i18n = TestBed.inject(I18nService);
     fixture.detectChanges();
   });
 
@@ -29,27 +29,27 @@ describe('HeroComponent', () => {
 
   it('should render greeting from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().hero.greeting);
+    expect(el.textContent).toContain(EN.hero.greeting);
   });
 
   it('should render role from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().hero.role);
+    expect(el.textContent).toContain(EN.hero.role);
   });
 
   it('should render publicity text from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().hero.publicity);
+    expect(el.textContent).toContain(EN.hero.publicity);
   });
 
   it('should render view projects button', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().hero.viewProjects);
+    expect(el.textContent).toContain(EN.hero.viewProjects);
   });
 
   it('should render connect button', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().hero.connect);
+    expect(el.textContent).toContain(EN.hero.connect);
   });
 
   it('should render all hero tags', () => {
@@ -63,11 +63,9 @@ describe('HeroComponent', () => {
     expect(component.heroTags.length).toBe(5);
   });
 
-  it('should update text when language changes', () => {
-    i18n.setLang('EN');
-    fixture.detectChanges();
+  it('should render English text by default', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain('Hi');
+    expect(el.textContent).toContain('Full Stack Developer');
     expect(el.textContent).toContain('View Projects');
   });
 

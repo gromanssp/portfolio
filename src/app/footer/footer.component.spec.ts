@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { FooterComponent } from './footer.component';
-import { I18nService } from '../services/i18n.service';
+import { EN } from '../services/translation';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
-  let i18n: I18nService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FooterComponent],
+      providers: [provideHttpClient()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
-    i18n = TestBed.inject(I18nService);
     fixture.detectChanges();
   });
 
@@ -24,7 +24,7 @@ describe('FooterComponent', () => {
 
   it('should render rights text from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.textContent).toContain(i18n.t().footer.rights);
+    expect(el.textContent).toContain(EN.footer.rights);
   });
 
   it('should render the current year', () => {
@@ -35,16 +35,17 @@ describe('FooterComponent', () => {
 
   it('should render all nav links from i18n', () => {
     const el = fixture.nativeElement as HTMLElement;
-    const t = i18n.t().nav;
-    expect(el.textContent).toContain(t.home);
-    expect(el.textContent).toContain(t.projects);
-    expect(el.textContent).toContain(t.about);
-    expect(el.textContent).toContain(t.contact);
+    expect(el.textContent).toContain(EN.nav.home);
+    expect(el.textContent).toContain(EN.nav.about);
+    expect(el.textContent).toContain(EN.nav.experience);
+    expect(el.textContent).toContain(EN.nav.skills);
+    expect(el.textContent).toContain(EN.nav.projects);
+    expect(el.textContent).toContain(EN.nav.contact);
   });
 
   it('should have anchor links to sections', () => {
-    const links = fixture.nativeElement.querySelectorAll('a');
-    const hrefs = Array.from(links).map((l: HTMLAnchorElement) => l.getAttribute('href'));
+    const links: HTMLAnchorElement[] = Array.from(fixture.nativeElement.querySelectorAll('a'));
+    const hrefs = links.map(l => l.getAttribute('href'));
     expect(hrefs).toContain('#inicio');
     expect(hrefs).toContain('#proyectos');
     expect(hrefs).toContain('#sobre');
@@ -56,9 +57,7 @@ describe('FooterComponent', () => {
     expect(socialLinks.length).toBe(5);
   });
 
-  it('should update text when language changes', () => {
-    i18n.setLang('EN');
-    fixture.detectChanges();
+  it('should render All rights reserved text', () => {
     const el = fixture.nativeElement as HTMLElement;
     expect(el.textContent).toContain('All rights reserved');
   });
