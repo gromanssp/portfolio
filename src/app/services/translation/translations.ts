@@ -31,6 +31,13 @@ export interface Translations {
     ati: string;
     salud: string;
   };
+  roles: {
+    automa: string;
+    dclick: string;
+    emgef: string;
+    ati: string;
+    salud: string;
+  };
   projects: {
     title: string;
     preview: string;
@@ -85,6 +92,13 @@ export const EN: Translations = {
     emgef: 'Corporate web development. Virtualized systems administration, monitoring and backup.',
     ati: 'Systems administration, ticket system implementation and web application deployment.',
     salud: 'IT supervision, Windows and Linux network administration, virtualization with Proxmox, web design with WordPress, and comprehensive technical support.'
+  },
+  roles: {
+    automa: 'Full Stack Developer',
+    dclick: 'Senior Full Stack Developer',
+    emgef: 'Web Developer',
+    ati: 'Network Administrator',
+    salud: 'Main Computer Specialist'
   },
   projects: {
     title: 'Projects',

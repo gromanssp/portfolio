@@ -29,6 +29,13 @@
     "ati": "Amministrazione sistemi, implementazione ticket e distribuzione applicazioni web.",
     "salud": "Supervisione IT, amministrazione reti Windows e Linux, virtualizzazione con Proxmox, web design con WordPress e supporto tecnico completo."
   },
+  "roles": {
+    "automa": "Full Stack Developer",
+    "dclick": "Senior Full Stack Developer",
+    "emgef": "Sviluppatore Web",
+    "ati": "Amministratore di Rete",
+    "salud": "Main Computer Specialist"
+  },
   "projects": {
     "title": "Progetti",
     "preview": "Anteprima",

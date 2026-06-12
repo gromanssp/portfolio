@@ -3,7 +3,7 @@ import { TranslationService } from '../services/translation';
 
 interface ExperienceItem {
   company: string;
-  role: string;
+  roleKey: 'automa' | 'dclick' | 'emgef' | 'ati' | 'salud';
   tags: string[];
   period: string;
   descriptionKey: 'automa' | 'dclick' | 'emgef' | 'ati' | 'salud';
@@ -114,44 +114,45 @@ export class AboutComponent implements OnDestroy {
   readonly experienceBase = signal<ExperienceItem[]>([
     {
       company: 'Municipal Health Office',
-      role: 'Main Computer Specialist',
+      roleKey: 'salud',
       tags: ['Windows', 'Linux', 'WordPress', 'Proxmox', 'HTML', 'CSS'],
       period: '2012 — 2019',
       descriptionKey: 'salud'
     },
     {
-      company: 'Automa',
-      role: 'Full Stack Developer',
-      tags: ['Angular', 'Java', 'Flutter', 'Docker'],
-      period: '2022 — 2026',
-      descriptionKey: 'automa'
-    },
-    {
-      company: 'DClick Solution',
-      role: 'Senior Full Stack Developer',
-      tags: ['Angular', 'Java', 'Flutter', 'Docker', 'Nestjs', 'Nodejs'],
-      period: '2022 — 2025',
-      descriptionKey: 'dclick'
+      company: 'ATI',
+      roleKey: 'ati',
+      tags: ['Proxmox', 'Linux', 'Windows', 'OTRS'],
+      period: '2019 — 2020',
+      descriptionKey: 'ati'
     },
     {
       company: 'EMGEF',
-      role: 'Web Developer',
+      roleKey: 'emgef',
       tags: ['HTML', 'CSS', 'Wordpress', 'VMWare'],
       period: '2021 — 2022',
       descriptionKey: 'emgef'
     },
     {
-      company: 'ATI',
-      role: 'Administrador de Red',
-      tags: ['Proxmox', 'Linux', 'Windows', 'OTRS'],
-      period: '2019 — 2020',
-      descriptionKey: 'ati'
+      company: 'DClick Solution',
+      roleKey: 'dclick',
+      tags: ['Angular', 'Java', 'Flutter', 'Docker', 'Nestjs', 'Nodejs'],
+      period: '2022 — 2025',
+      descriptionKey: 'dclick'
+    },
+    {
+      company: 'Automa',
+      roleKey: 'automa',
+      tags: ['Angular', 'Java', 'Flutter', 'Docker'],
+      period: '2022 — 2026',
+      descriptionKey: 'automa'
     }
   ]);
 
   readonly experience = computed(() =>
     this.experienceBase().slice().reverse().map(e => ({
       ...e,
+      role: this.i18n.t().roles[e.roleKey],
       description: this.i18n.t().experience[e.descriptionKey]
     }))
   );
